@@ -3,7 +3,7 @@
 
 </head>
 <body>
-<#if user.userRole.ordinal == 0>
+<#if principal.userRole == "ROLE_CLIENT">
     ${principal.name}asdasd
 <#else>
     ${principal.name}

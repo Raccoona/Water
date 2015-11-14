@@ -1,7 +1,7 @@
 package com.water.service;
 
 import com.water.model.Client;
-import com.water.util.ClientRegistrationForm;
+import com.water.util.form.ClientRegistrationForm;
 
 import java.util.List;
 

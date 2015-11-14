@@ -4,7 +4,8 @@ import com.water.model.Client;
 import com.water.repository.ClientRepository;
 import com.water.repository.ProviderRepository;
 import com.water.service.ClientService;
-import com.water.util.ClientRegistrationForm;
+import com.water.util.ClientRegFormToClientTrans;
+import com.water.util.form.ClientRegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

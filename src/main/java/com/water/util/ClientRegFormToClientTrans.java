@@ -1,8 +1,8 @@
-package com.water.service.impl;
+package com.water.util;
 
 import com.water.model.Client;
 import com.water.model.enums.UserRole;
-import com.water.util.ClientRegistrationForm;
+import com.water.util.form.ClientRegistrationForm;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class ClientRegFormToClientTrans {

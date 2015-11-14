@@ -1,4 +1,4 @@
-package com.water.util;
+package com.water.util.form;
 
 import org.hibernate.validator.constraints.NotEmpty;
 

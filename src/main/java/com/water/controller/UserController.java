@@ -1,7 +1,7 @@
 package com.water.controller;
 
 import com.water.model.User;
-import org.springframework.security.core.context.SecurityContextHolder;
+import com.water.util.Security;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 @Controller
 @RequestMapping("/user")
 public class UserController {
 
     @RequestMapping("/home")
     public String getHomePage(Model model) {
-         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal(); 
+        User user = Security.getCurrentUser();
         model.addAttribute("principal", user);
         return "home";
 

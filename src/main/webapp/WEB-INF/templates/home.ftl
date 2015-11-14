@@ -3,12 +3,10 @@
 
 </head>
 <body>
-<#if principal.role == "ROLE_CLIENT">
-    principal.name
-    principal.role
+<#if principal.userRole.name == 0>
+    ${principal.name}asdasd
 <#else>
-    principal.name
-    principal.role
+    ${principal.name}
 </#if>
 </body>
 </html>

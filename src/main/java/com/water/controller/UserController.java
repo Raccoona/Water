@@ -63,7 +63,6 @@ public class UserController {
 //        return "";
 //    }
 
-
     @RequestMapping(name = "/recJson", method = RequestMethod.POST)
     @ResponseBody
     public void getJson(@RequestBody(required = false) Test s) {

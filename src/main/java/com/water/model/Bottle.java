@@ -9,7 +9,6 @@ public class Bottle {
     @Id
     private Long id;
 
-
     private String name;
 
     @ManyToOne

@@ -1,6 +1,7 @@
 package com.water.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Provider {
@@ -10,13 +11,15 @@ public class Provider {
     private Long id;
 
     @Column(unique = true)
-    private String name;
+    private String login;
 
-    private String adress;
+    @Column(name = "address")
+    private String address;
 
-    //@OneToMany(fetch = FetchType.LAZY)
-    //private List<Client> clients;
+    @OneToMany(mappedBy = "provider", fetch = FetchType.LAZY)
+    private List<Client> clients;
 
+    @Column(name = "password")
     private String password;
 
     public Long getId() {
@@ -27,27 +30,35 @@ public class Provider {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAdress() {
-        return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public List<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(List<Client> clients) {
+        this.clients = clients;
     }
 }

@@ -2,7 +2,7 @@ package com.water.model.enums;
 
 public enum UserRole {
 
-    ROLE_USER,
-    ROLE_ADMIN
+    ROLE_CLIENT,
+    ROLE_PROVIDER
 
 }

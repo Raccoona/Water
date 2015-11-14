@@ -8,8 +8,8 @@
 
 <body>
 <div class="container">
-    <a href="/registration"> Sign up as client</a>
-    <a href="/registration"> Sign up as provider </a>
+    <a href="/registration-client"> Sign up as client</a>
+    <a href="/registration-provider"> Sign up as provider </a>
     <a href="/login"> Sign in </a>
 </div>
 <script type="text/javascript" src="/resources/js/lib/jquery-2.1.4.js"></script>

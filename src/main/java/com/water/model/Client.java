@@ -12,9 +12,10 @@ public class Client {
     private Long id;
 
     @Column(unique = true)
-    private String name;
+    private String login;
 
-    private String adress;
+    @Column(name = "address")
+    private String address;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "provider_id")
@@ -24,6 +25,7 @@ public class Client {
     @Column(name = "role")
     private UserRole userRole;
 
+    @Column(name = "password")
     private String password;
 
     public String getPassword() {
@@ -42,14 +44,6 @@ public class Client {
         this.provider = provider;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Long getId() {
         return id;
     }
@@ -58,19 +52,27 @@ public class Client {
         this.id = id;
     }
 
-    public String getAdress() {
-        return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-
     public UserRole getUserRole() {
         return userRole;
     }
 
     public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 }

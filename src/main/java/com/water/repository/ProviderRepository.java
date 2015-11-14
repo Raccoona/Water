@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProviderRepository extends JpaRepository<Provider, Long> {
 
-    Provider findByName(String name);
+    Provider findByLogin(String name);
 
 }

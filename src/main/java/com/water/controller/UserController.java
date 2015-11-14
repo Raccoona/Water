@@ -1,7 +1,10 @@
 package com.water.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/user")
@@ -11,5 +14,26 @@ public class UserController {
     public String getHomePage() {
         return "home";
     }
+
+    @RequestMapping(name = "/recJson", method = RequestMethod.POST)
+    @ResponseBody
+    public void getJson(@RequestBody(required = false) Test s) {
+        String str = s.toString();
+        System.out.println("TEST");
+        System.out.println(str);
+    }
+
+    class Test{
+        private Object[] ids;
+
+        public Object[] getIds() {
+            return ids;
+        }
+
+        public void setIds(Object[] ids) {
+            this.ids = ids;
+        }
+    }
+
 
 }

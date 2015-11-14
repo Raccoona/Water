@@ -5,12 +5,14 @@ import com.water.model.User;
 import com.water.repository.BottleRepository;
 import com.water.service.BottleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
-/**
- * Created by aleksandrpliskin on 14.11.15.
- */
+
+@Service
+@Transactional
 public class BottleServiceImpl implements BottleService {
 
     @Autowired

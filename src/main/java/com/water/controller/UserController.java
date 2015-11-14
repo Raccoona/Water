@@ -25,7 +25,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    WaterRequestRepository waterRequestRepository;
+    private WaterRequestRepository waterRequestRepository;
 
     @RequestMapping("/main")
     public String getMainPage(Model model) {
@@ -52,8 +52,7 @@ public class UserController {
 
     @RequestMapping("/client")
     public String getClientInfo(@RequestParam("clientId") String clientId,  Model model) {
-        User user = Security.getCurrentUser();
-        List<User> clients = userService.getClients(user);
+        User user = userService.getProvider(Long.parseLong(clientId));
         List<Bottle> bottles = bottleService.getBottlersByUser(user);
         model.addAttribute("user", user);
         model.addAttribute("bottles", bottles);

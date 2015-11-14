@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -21,29 +22,35 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping("/main")
+    public String getMainPage() {
+        return "main";
+    }
+
     @RequestMapping("/home")
-    public String getHomePage(Model model) {
+    @ResponseBody
+    public ModelAndView getHomePage(Model model) {
         User user = Security.getCurrentUser();
         model.addAttribute("user", user);
-        return "home";
+        return new ModelAndView("home");
     }
 
     @RequestMapping("/clients/get")
     @ResponseBody
-    public String getClients(Model model) {
+    public ModelAndView getClients(Model model) {
         User user = Security.getCurrentUser();
         List<User> clients = userService.getClients(user);
         model.addAttribute("clients", clients);
-        return "";
+        return new ModelAndView("clients");
     }
 
     @RequestMapping("/providers/get")
     @ResponseBody
-    public String getProvider(Model model) {
+    public ModelAndView getProvider(Model model) {
         User user = Security.getCurrentUser();
         User provider = userService.getProvider(user);
         model.addAttribute("provider", provider);
-        return "";
+        return new ModelAndView("provider");
     }
 
     @RequestMapping(name = "/recJson", method = RequestMethod.POST)

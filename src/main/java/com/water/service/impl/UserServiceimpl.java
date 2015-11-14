@@ -16,9 +16,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by aleksandrpliskin on 14.11.15.
- */
+
 @Service
 @Transactional
 public class UserServiceimpl implements UserService {

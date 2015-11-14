@@ -9,6 +9,9 @@ public class Bottle {
     @Id
     private Long id;
 
+
+    private String name;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -39,5 +42,13 @@ public class Bottle {
 
     public void setWaterLeft(Integer waterLeft) {
         this.waterLeft = waterLeft;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

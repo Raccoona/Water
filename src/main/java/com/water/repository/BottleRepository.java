@@ -3,12 +3,11 @@ package com.water.repository;
 import com.water.model.Bottle;
 import com.water.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by Maxim Ignatiev on 14.11.15.
- */
+@Repository
 public interface BottleRepository extends JpaRepository<Bottle, Long> {
 
 

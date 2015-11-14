@@ -5,12 +5,14 @@ import com.water.model.User;
 import com.water.repository.WaterRequestRepository;
 import com.water.service.BottleService;
 import com.water.service.UserService;
+import com.water.service.WaterRequestService;
 import com.water.util.Security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -23,6 +25,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    WaterRequestService waterRequestService;
 
     @Autowired
     private WaterRequestRepository waterRequestRepository;
@@ -39,6 +44,12 @@ public class UserController {
         User user = Security.getCurrentUser();
         model.addAttribute("user", user);
         return "home";
+    }
+
+    @RequestMapping(name = "/request/update")
+    public String updateWaterRequest(@RequestParam("waterReqId") Long waterReqId, @RequestParam("date") Date date) {
+        waterRequestService.updateRequest(waterReqId, date);
+        return "redirect:/user/home";
     }
 
     @RequestMapping("/clients/get")

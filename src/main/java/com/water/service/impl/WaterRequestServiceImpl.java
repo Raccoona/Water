@@ -11,6 +11,7 @@ import com.water.service.WaterRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -45,5 +46,13 @@ public class WaterRequestServiceImpl implements WaterRequestService {
             request.setStatus(WaterRequestStatus.CLOSED);
             waterRequestRepository.save(request);
         }
+    }
+
+    @Override
+    public void updateRequest(Long id, Date date) {
+        WaterRequest waterRequest = waterRequestRepository.findOne(id);
+        waterRequest.setStatus(WaterRequestStatus.ACCEPTED);
+        waterRequest.setDate(date);
+        waterRequestRepository.save(waterRequest);
     }
 }

@@ -2,14 +2,12 @@ package com.water.controller;
 
 import com.water.model.User;
 import com.water.service.UserService;
+import com.water.util.Parser;
 import com.water.util.Security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -49,6 +47,22 @@ public class UserController {
         model.addAttribute("provider", provider);
         return "provider";
     }
+
+    @RequestMapping("/providers/getAll")
+    public String getProviders(Model model) {
+        User user = Security.getCurrentUser();
+        List<User> providers = userService.getProviders(user);
+        return "";
+    }
+
+    @RequestMapping(name = "/providers/add", method = RequestMethod.POST)
+    public String addProvider(@RequestParam("providerId") String providerId, Model model) {
+        User client = Security.getCurrentUser();
+        User provider = userService.getProvider(Long.parseLong(Parser.parseId(providerId)));
+        userService.addProvider(client, provider);
+        return "";
+    }
+
 
     @RequestMapping(name = "/recJson", method = RequestMethod.POST)
     @ResponseBody

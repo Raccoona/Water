@@ -45,6 +45,7 @@ public class UserController {
         User user = Security.getCurrentUser();
         User provider = userService.getProvider(user);
         model.addAttribute("provider", provider);
+        model.addAttribute("user", user);
         return "provider";
     }
 

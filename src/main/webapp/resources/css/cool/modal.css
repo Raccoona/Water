@@ -1,0 +1,77 @@
+.modal {
+    z-index: 9999999;
+}
+
+.modal-dialog {
+    padding: 20px;
+    width: 80%;
+}
+
+.modal-content {
+    float: left;
+    position: relative;
+    background-color: #fff;
+    border: none;
+    border-radius: 0px;
+    color: #2a4c83;
+    padding: 10px;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-clip: padding-box;
+}
+
+#myModalLabel {
+    margin: 0;
+}
+
+/*
+Form
+=========================== */
+.form-control:-moz-placeholder {
+    color: #fff;
+}
+
+.form-control::-moz-placeholder {
+    color: #fff;
+}
+
+.form-control:-ms-input-placeholder {
+    color: #fff;
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #fff;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 5px 10px;
+    font-size: 18px;
+    line-height: 1.428571429;
+    background-color: none;
+    border: 1px solid #477fdd;
+    color: #477fdd;
+    background: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: none;
+    transition: none;
+}
+
+.form-control:focus {
+    border: 1px solid #305797;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+textarea.form-control {
+    border-radius: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}

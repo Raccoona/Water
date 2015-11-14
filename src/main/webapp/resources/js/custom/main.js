@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $("#home").click(function () {
         $.ajax({
-            url: 'user/home',
+            url: 'home',
             type: 'GET',
             dataType: 'html',
             success: function (response) {
@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     $("#provider").click(function () {
         $.ajax({
-            url: 'user/providers/get',
+            url: 'providers/get',
             type: 'GET',
             dataType: 'html',
             success: function (response) {
@@ -35,7 +35,7 @@ $(document).ready(function () {
 
     $("#clients").click(function () {
         $.ajax({
-            url: 'user/clients/get',
+            url: 'clients/get',
             type: 'GET',
             dataType: 'html',
             success: function (response) {

@@ -23,7 +23,8 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/main")
-    public String getMainPage() {
+    public String getMainPage(Model model) {
+        model.addAttribute("user", Security.getCurrentUser());
         return "main";
     }
 

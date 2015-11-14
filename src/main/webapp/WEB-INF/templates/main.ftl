@@ -6,7 +6,7 @@
     <#if waterRequests??>
         <h3> Заявки</h3>
         <#list waterRequests as request>
-            <p>Отправлена заявка. Статус: ${request.status}</p>
+            <p>Отправлена заявка. Бутылка: ${request.bottle.name}. Статус: ${request.status}</p>
         </#list>
     </#if>
 

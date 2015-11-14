@@ -30,16 +30,16 @@ public class IndexController {
         return "index";
     }
 
-    @RequestMapping(value = "/water_request", method = RequestMethod.POST)
+    @RequestMapping(value = "/water_request")
     @ResponseStatus(HttpStatus.OK)
-    public void addRequest(@RequestParam("id") Long bottleId) {
-        waterRequestService.addRequest(bottleId);
+    public void addRequest() {
+        waterRequestService.addRequest(3L);
     }
 
-    @RequestMapping(value = "/remove_request", method = RequestMethod.POST)
+    @RequestMapping(value = "/remove_request")
     @ResponseStatus(HttpStatus.OK)
-    public void removeRequest(@RequestParam("id") Long bottleId) {
-        waterRequestService.removeRequest(bottleId);
+    public void removeRequest() {
+        waterRequestService.removeRequest(3L);
     }
 
 }

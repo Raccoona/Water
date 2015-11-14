@@ -1,4 +1,4 @@
-<#include "main-template.ftl"/>
+                <#include "main-template.ftl"/>
 <#macro m_body>
 <div>
     <h2>${user.name}</h2>

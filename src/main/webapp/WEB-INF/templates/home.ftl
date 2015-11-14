@@ -16,7 +16,11 @@
             <tr>
                 <td>${w.to.name}</td>
                 <td>${w.status}</td>
-                <td>${w.date}</td>
+                <#if w.date??>
+                    <td>${w.date}</td>
+                <#else >
+                <td>Provider hasn't accepted ur request yet</td>
+                </#if>
             </tr>
             </#list>
         </tbody>

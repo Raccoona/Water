@@ -2,18 +2,11 @@ package com.water.controller;
 
 import com.water.service.ClientService;
 import com.water.service.ProviderService;
-import com.water.util.ClientRegistrationForm;
-import com.water.util.ProviderRegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.validation.Valid;
 
 @Controller
 public class AuthController {
@@ -37,6 +30,10 @@ public class AuthController {
         return "login";
     }
 
+    @RequestMapping("/registration")
+
+
+    /*
     @RequestMapping("/registration-client")
     public String getClientRegistrationPage(Model model) {
         model.addAttribute("clientform", new ClientRegistrationForm());
@@ -58,5 +55,5 @@ public class AuthController {
         clientService.saveNewClient(clientRegistrationForm);
         return "redirect:/login";
     }
-
+    */
 }

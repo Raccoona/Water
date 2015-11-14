@@ -41,6 +41,7 @@ public class UserController {
         User user = Security.getCurrentUser();
         List<User> clients = userService.getClients(user);
         model.addAttribute("clients", clients);
+        model.addAttribute("user", user);
         return "clients";
     }
 

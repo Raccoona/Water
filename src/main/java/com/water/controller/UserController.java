@@ -1,7 +1,9 @@
 package com.water.controller;
 
+import com.water.model.Bottle;
 import com.water.model.User;
 import com.water.repository.WaterRequestRepository;
+import com.water.service.BottleService;
 import com.water.service.UserService;
 import com.water.util.Security;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +19,13 @@ import java.util.List;
 public class UserController {
 
     @Autowired
+    private BottleService bottleService;
+
+    @Autowired
     private UserService userService;
 
     @Autowired
-    WaterRequestRepository waterRequestRepository;
+    private WaterRequestRepository waterRequestRepository;
 
     @RequestMapping("/main")
     public String getMainPage(Model model) {
@@ -46,8 +51,12 @@ public class UserController {
     }
 
     @RequestMapping("/client")
-    public String getClientInfo(@RequestParam("clientId") String clientId,  Model model) {
-        return "";
+    public String getClientInfo(@RequestParam("clientId") String clientId, Model model) {
+        User user = userService.getProvider(Long.parseLong(clientId));
+        List<Bottle> bottles = bottleService.getBottlersByUser(user);
+        model.addAttribute("user", user);
+        model.addAttribute("bottles", bottles);
+        return "client";
     }
 
     @RequestMapping("/providers/get")

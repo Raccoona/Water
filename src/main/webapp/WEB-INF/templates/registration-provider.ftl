@@ -35,7 +35,8 @@
         </#if>
         <button type="submit" class="btn btn-default">Submit</button>
     </@sf.form>
-    <#if validatorError??><div class="alert alert-danger" role="alert">${validatorError}</div></#if>
+    <#if validatorError??>
+        <div class="alert alert-danger" role="alert">${validatorError}</div></#if>
 </div>
 </#macro>
 <@main title="Регистрация"/>

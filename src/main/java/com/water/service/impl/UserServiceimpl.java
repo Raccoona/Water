@@ -45,7 +45,7 @@ public class UserServiceimpl implements UserService {
     @Override
     public User getProvider(User client) {
         Cooperation cooperation = cooperationRepository.findByClient(client);
-        return cooperation!=null? cooperation.getProvider() : null;
+        return cooperation != null ? cooperation.getProvider() : null;
     }
 
     @Override
@@ -63,7 +63,7 @@ public class UserServiceimpl implements UserService {
     @Override
     public boolean addProvider(User client, User provider) {
         User myProvider = getProvider(client);
-        if (myProvider!=null) {
+        if (myProvider != null) {
             cooperationRepository.save(new Cooperation(client, provider));
             return true;
         }

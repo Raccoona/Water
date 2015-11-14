@@ -51,21 +51,21 @@ $(document).ready(function () {
     });
 
     /*
-    $("#statistics").click(function () {
-        $.ajax({
-            url: 'user/providers/get',
-            type: 'GET',
-            dataType: 'html',
-            success: function (response) {
-                $("title").text("home");
-                $("#provider").parent("li").addClass("active");
-                $("#home").parent("li").removeClass("active");
-                $("#statistics").parent("li").removeClass("active");
-                $("#clients").parent("li").removeClass("active");
-                $("#content").html(response);
-                $.getScript("/resources/js/custom/provider.js");
-            }
-        });
-    });
-    */
+     $("#statistics").click(function () {
+     $.ajax({
+     url: 'user/providers/get',
+     type: 'GET',
+     dataType: 'html',
+     success: function (response) {
+     $("title").text("home");
+     $("#provider").parent("li").addClass("active");
+     $("#home").parent("li").removeClass("active");
+     $("#statistics").parent("li").removeClass("active");
+     $("#clients").parent("li").removeClass("active");
+     $("#content").html(response);
+     $.getScript("/resources/js/custom/provider.js");
+     }
+     });
+     });
+     */
 });

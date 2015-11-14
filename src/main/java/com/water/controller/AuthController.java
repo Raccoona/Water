@@ -1,7 +1,6 @@
 package com.water.controller;
 
-import com.water.service.ClientService;
-import com.water.service.ProviderService;
+import com.water.service.UserService;
 import com.water.util.form.UserRegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,10 +17,7 @@ import javax.validation.Valid;
 public class AuthController {
 
     @Autowired
-    private ClientService clientService;
-
-    @Autowired
-    private ProviderService providerService;
+    private UserService userService;
 
     @RequestMapping("/guest")
     public String getHello() {

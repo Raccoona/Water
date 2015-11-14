@@ -1,21 +1,12 @@
 package com.water.repository;
 
-import com.water.model.Client;
 import com.water.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-/**
- * Created by aleksandrpliskin on 14.11.15.
- */
-public interface UserRepository {
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
 
     User findByLogin(String name);
-
-    User findByAddress(String address);
-
-    List<User> findByProvider(String provider);
-
-    User findByClient(String client);
 
 }

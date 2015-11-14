@@ -10,13 +10,12 @@
         </div>
         <div>
             <ul class="nav navbar-nav">
-                <li><a id="showU" href="#" onclick="doAjaxShowUserHomePage()">${user.name}</a></li>
+                <li><a id="home" href="#"> Home </a></li>
             <#if user.userRole == "ROLE_ClIENT">
-                <li><a id="showF" href="#" onclick="doAjaxShowFriends()">Friends</a></li>
-                <li><a id="showOU" href="#" onclick="doAjaxShowOtherUsers()">Other users</a></li>
+                <li><a id="provider" href="#"> Provider </a></li>
+                <li><a id="statistics" href="#">Statistics</a></li>
             <#else>
-                <li><a id="showF" href="#" onclick="doAjaxShowFriends()">Clients</a></li>
-                <li><a id="showOU" href="#" onclick="doAjaxShowOtherUsers()">Other users</a></li>
+                <li><a id="clients" href="#" onclick="doAjaxShowFriends()">Clients</a></li>
             </#if>
                 <li><a href="/logout">Logout</a></li>
             </ul>
@@ -29,11 +28,5 @@
 <script type="text/javascript" src="/resources/js/lib/jquery-2.1.4.js"></script>
 <script type="text/javascript" src="/resources/js/lib/bootstrap.min.js"></script>
 <script type="text/javascript" src="/resources/js/custom/main.js"></script>
-<#if user.userRole == "ROLE_ClIENT">
-    ${user.name}
-
-<#else>
-    ${user.name}
-</#if>
 </body>
 </html>

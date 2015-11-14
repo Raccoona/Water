@@ -17,10 +17,11 @@ public class UserController {
     @RequestMapping("/home")
     public String getHomePage(Model model) {
         User user = Security.getCurrentUser();
-        model.addAttribute("principal", user);
+        model.addAttribute("user", user);
         return "home";
-
     }
+
+
 
     @RequestMapping(name = "/recJson", method = RequestMethod.POST)
     @ResponseBody

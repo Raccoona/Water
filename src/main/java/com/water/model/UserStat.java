@@ -8,6 +8,7 @@ import java.util.Date;
 public class UserStat {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToOne()

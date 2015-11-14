@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>${title}</title>
     <link rel="stylesheet" type="text/css" href="/resources/css/lib/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/lib/main.css"/>
 
     <script src="/resources/js/lib/jquery-2.1.4.js"></script>
 

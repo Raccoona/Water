@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Bottle {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;

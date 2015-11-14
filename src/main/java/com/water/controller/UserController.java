@@ -1,6 +1,7 @@
 package com.water.controller;
 
 import com.water.model.User;
+import com.water.repository.WaterRequestRepository;
 import com.water.service.UserService;
 import com.water.util.Security;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    WaterRequestRepository waterRequestRepository;
+
     @RequestMapping("/main")
     public String getMainPage(Model model) {
         model.addAttribute("user", Security.getCurrentUser());
+        model.addAttribute("waterRequests", waterRequestRepository.findByFrom(Security.getCurrentUser()));
         return "main";
     }
 
@@ -49,6 +54,7 @@ public class UserController {
         User user = Security.getCurrentUser();
         User provider = userService.getProvider(user);
         model.addAttribute("provider", provider);
+        model.addAttribute("user", user);
         return "provider";
     }
 

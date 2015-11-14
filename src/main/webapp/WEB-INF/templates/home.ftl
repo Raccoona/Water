@@ -7,4 +7,4 @@
 <div>${user.email}</div>
 
 </#macro>
-<@main title="Home"/>
+<@main title="Index"/>

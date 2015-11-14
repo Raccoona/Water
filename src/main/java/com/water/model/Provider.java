@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 public class Provider {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

@@ -3,7 +3,6 @@ package com.water.controller;
 import com.water.model.User;
 import com.water.repository.WaterRequestRepository;
 import com.water.service.UserService;
-import com.water.util.Parser;
 import com.water.util.Security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,6 +42,11 @@ public class UserController {
         List<User> clients = userService.getClients(user);
         model.addAttribute("clients", clients);
         return "clients";
+    }
+
+    @RequestMapping("/client")
+    public String getClientInfo(@RequestParam("clientId") String clientId,  Model model) {
+        return "";
     }
 
     @RequestMapping("/providers/get")

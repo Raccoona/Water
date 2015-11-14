@@ -2,4 +2,5 @@
 Water.iml
 /target
 .DS_Store
-**/database.properties
+database.properties
+liquibase.properties

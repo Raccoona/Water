@@ -15,9 +15,13 @@
         </div>
         <div>
             <ul class="nav navbar-nav">
-                <li><a id="showU" href="#" onclick="doAjaxShowUserHomePage()">Home</a></li>
-                <li><a id="showF" href="#" onclick="doAjaxShowFriends()">Friends</a></li>
-                <li><a id="showOU" href="#" onclick="doAjaxShowOtherUsers()">Other users</a></li>
+                <li><a id="home" href="#"> Home </a></li>
+            <#if user.userRole == "ROLE_ClIENT">
+                <li><a id="provider" href="#"> Provider </a></li>
+                <li><a id="statistics" href="#">Statistics</a></li>
+            <#else>
+                <li><a id="clients" href="#">Clients</a></li>
+            </#if>
                 <li><a href="/logout">Logout</a></li>
             </ul>
         </div>

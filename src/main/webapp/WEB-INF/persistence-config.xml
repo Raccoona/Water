@@ -6,7 +6,9 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-    <context:property-placeholder location="classpath:database.properties" ignore-unresolvable="true"/>
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="resources/database.properties"/>
+    </bean>
 
     <jpa:repositories base-package="com.water.repository"/>
 
@@ -20,7 +22,7 @@
     <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
         <property name="database" value="POSTGRESQL"/>
         <property name="showSql" value="true"/>
-        <property name="generateDdl" value="false"/>
+        <property name="generateDdl" value="true"/>
         <property name="databasePlatform" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
     </bean>
 

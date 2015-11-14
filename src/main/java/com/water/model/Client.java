@@ -16,8 +16,8 @@ public class Client {
 
     private String adress;
 
-    @Column(nullable = true)
-    @OneToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "provider_id")
     private Provider provider;
 
     @Enumerated(EnumType.ORDINAL)

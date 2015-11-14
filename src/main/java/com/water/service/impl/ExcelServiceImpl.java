@@ -11,7 +11,9 @@ import org.jxls.util.JxlsHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.*;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
 
@@ -24,7 +26,7 @@ public class ExcelServiceImpl implements ExcelService {
     @Autowired
     UserRepository userRepository;
 
-    public void getExcel(Long id, Date beginDate, Date endDate) {
+    public void getExcel(Long id, Date beginDate, Date endDate, HttpServletResponse resp) {
         List<UserStat> userInfo = repository.findAllByUserBetweenPeriod(id, beginDate, endDate);
         UserModal modal = new UserModal();
         modal.setEndDate(endDate);
@@ -33,13 +35,11 @@ public class ExcelServiceImpl implements ExcelService {
         modal.setUsername(user.getName());
         modal.setStats(userInfo);
         try (InputStream is = ExcelServiceImpl.class.getResourceAsStream("/excelTemplate.xls")) {
-            try (OutputStream os = new FileOutputStream(new File("/excel/" + beginDate.toString() + "_" + endDate.toString() + ".xls"))) {
-                Context context = new Context();
-                context.putVar("info", modal);
-                JxlsHelper.getInstance().processTemplate(is, os, context);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            resp.setContentType("xls");
+            resp.setHeader("Content-Disposition", "attachment;filename=" + beginDate + "_" + endDate);
+            Context context = new Context();
+            context.putVar("info", modal);
+            JxlsHelper.getInstance().processTemplate(is, resp.getOutputStream(), context);
         } catch (IOException e) {
             e.printStackTrace();
         }

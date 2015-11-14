@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletResponse;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,10 +34,10 @@ public class ExcelController {
     @RequestMapping(value = "/excel/{user_id}_{begin_date}_{end_date}", method = RequestMethod.POST)
     public void getExcel(@PathVariable("user_id") Long id,
                          @PathVariable("begin_date") String beginDate,
-                         @PathVariable("end_date") String endDate) throws ParseException {
+                         @PathVariable("end_date") String endDate, HttpServletResponse response) throws ParseException {
         DateFormat format = new SimpleDateFormat("yyyy-mm-dd");
         Date beginDateD = format.parse(beginDate);
         Date endDateD = format.parse(endDate);
-        excelService.getExcel(id, beginDateD, endDateD);
+        excelService.getExcel(id, beginDateD, endDateD, response);
     }
 }

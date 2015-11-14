@@ -21,7 +21,11 @@ public class UserController {
         return "home";
     }
 
+    @RequestMapping("/clients/get")
+    public String getClients(Model model) {
+        User user = Security.getCurrentUser();
 
+    }
 
     @RequestMapping(name = "/recJson", method = RequestMethod.POST)
     @ResponseBody

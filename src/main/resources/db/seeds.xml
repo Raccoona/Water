@@ -18,5 +18,12 @@
         </loadUpdateData>
     </changeSet>
 
+    <changeSet id="bitches_2" author="paradise1203">
+        <loadUpdateData tableName="cooperation" primaryKey="id" file="seeds/cooperation.csv">
+            <column name="id" type="numeric"/>
+            <column name="client_id" type="numeric"/>
+            <column name="provider_id" type="numeric"/>
+        </loadUpdateData>
+    </changeSet>
 
 </databaseChangeLog>

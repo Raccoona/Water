@@ -1,6 +1,7 @@
 package com.water.controller;
 
 import com.water.model.User;
+import com.water.repository.WaterRequestRepository;
 import com.water.service.UserService;
 import com.water.util.Parser;
 import com.water.util.Security;
@@ -19,9 +20,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    WaterRequestRepository waterRequestRepository;
+
     @RequestMapping("/main")
     public String getMainPage(Model model) {
         model.addAttribute("user", Security.getCurrentUser());
+        model.addAttribute("waterRequests", waterRequestRepository.findByFrom(Security.getCurrentUser()));
         return "main";
     }
 

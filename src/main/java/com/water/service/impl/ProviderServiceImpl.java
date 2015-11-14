@@ -16,11 +16,9 @@ import javax.transaction.Transactional;
 @Transactional
 public class ProviderServiceImpl implements ProviderService {
 
-    @Qualifier("providerRepository")
     @Autowired
     private ProviderRepository providerRepository;
 
-    @Qualifier("clientRepository")
     @Autowired
     private ClientRepository clientRepository;
 

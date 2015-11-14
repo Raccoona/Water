@@ -1,5 +1,7 @@
 package com.water.security;
 
+import com.water.model.Client;
+import com.water.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -8,7 +10,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -17,12 +18,15 @@ import java.util.List;
 
 public class AuthProviderImpl implements AuthenticationProvider {
 
+    @Autowired
+    private ClientRepository clientRepository;
+
     private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String login = authentication.getName();
-        User user = userRepository.findByLogin(login);
+        Client user = clientRepository.findByName(login);
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }

@@ -15,11 +15,9 @@ import java.util.List;
 @Transactional
 public class ClientServiceImpl implements ClientService {
 
-    @Qualifier("providerRepository")
     @Autowired
     private ProviderRepository providerRepository;
 
-    @Qualifier("clientRepository")
     @Autowired
     private ClientRepository clientRepository;
 

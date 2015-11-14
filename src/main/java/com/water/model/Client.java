@@ -1,5 +1,7 @@
 package com.water.model;
 
+import com.water.model.enums.UserRole;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +19,10 @@ public class Client {
     @Column(nullable = true)
     @OneToOne
     private Provider provider;
+
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "role")
+    private UserRole userRole;
 
     private String password;
 
@@ -58,5 +64,13 @@ public class Client {
 
     public void setAdress(String adress) {
         this.adress = adress;
+    }
+
+    public UserRole getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(UserRole userRole) {
+        this.userRole = userRole;
     }
 }

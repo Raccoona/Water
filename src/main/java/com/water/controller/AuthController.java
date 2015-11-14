@@ -2,11 +2,17 @@ package com.water.controller;
 
 import com.water.service.ClientService;
 import com.water.service.ProviderService;
+import com.water.util.form.UserRegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 @Controller
 public class AuthController {
@@ -31,7 +37,21 @@ public class AuthController {
     }
 
     @RequestMapping("/registration")
+    public String getRegistrationPage(Model model) {
+        model.addAttribute("userform", new UserRegistrationForm());
+        return "registration";
+    }
 
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    public String processRegistrationPage(@ModelAttribute("userform") @Valid UserRegistrationForm userRegistrationForm,
+                                          BindingResult bindingResult) {
+        //validator.validate(userRegistrationForm, bindingResult);
+        if (bindingResult.hasErrors()) {
+            return "redirect:/registration";
+        }
+        userService.saveNewUser(userRegistrationForm);
+        return "redirect:/login";
+    }
 
     /*
     @RequestMapping("/registration-client")

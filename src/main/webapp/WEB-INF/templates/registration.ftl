@@ -11,22 +11,17 @@
     <h3> Welcome to registration page! </h3>
 <@sf.form action="/registration" method="post" modelAttribute="userform">
     <div class="form-group">
-        <@sf.label path="firstName"> First name: </@sf.label>
-        <@sf.input path="firstName" cssClass="form-control"/>
-        <@sf.errors path="firstName"/>
+        <@sf.label path="name"> Company name: </@sf.label>
+        <@sf.input path="name" cssClass="form-control"/>
+        <@sf.errors path="name"/>
     </div>
     <div class="form-group">
-        <@sf.label path="lastName"> Last name: </@sf.label>
-        <@sf.input path="lastName" cssClass="form-control"/>
-        <@sf.errors path="lastName"/>
-    </div>
-    <div class="form-group">
-        <@sf.label path="sex"> Sex: </@sf.label>
-        <@sf.select path="sex" cssClass="form-control">
-            <@sf.option value=0> Male </@sf.option>
-            <@sf.option value=1> Female </@sf.option>
+        <@sf.label path="userRole"> Role: </@sf.label>
+        <@sf.select path="userRole" cssClass="form-control">
+            <@sf.option value=0> Client </@sf.option>
+            <@sf.option value=1> Provider </@sf.option>
         </@sf.select>
-        <@sf.errors path="sex"/>
+        <@sf.errors path="userRole"/>
     </div>
     <div class="form-group">
         <@sf.label path="city"> City: </@sf.label>

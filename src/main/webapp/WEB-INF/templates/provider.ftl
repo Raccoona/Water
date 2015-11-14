@@ -1,8 +1,3 @@
-<html>
-<head>
-
-</head>
-<body>
+<#if provider??>
 ${provider.name} ${provider.userRole}
-</body>
-</html>
+</#if>

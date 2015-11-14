@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>${title}</title>
-    <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/lib/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/main.css"/>
 
-    <script src="/resources/js/jquery-2.1.3.min.js"></script>
+    <script src="/resources/js/lib/jquery-2.1.4.js"></script>
 
     <#list customStyles as style>
         <link rel="stylesheet" type="text/css" href="${style}"/>
@@ -30,10 +30,5 @@
 </div>
 
 </body>
-<footer class="footer">
-    <div class="container">
-        <p class="text-muted">Alexander Pliskin Corporation</p>
-    </div>
-</footer>
 </html>
 </#macro>

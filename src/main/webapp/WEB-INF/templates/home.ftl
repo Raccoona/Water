@@ -1,5 +1,5 @@
-<#include "main-template.ftl"/>
-<#macro m_body>
+<html>
+<body>
     <#if role == "client">
     principal.name
     here client
@@ -11,5 +11,5 @@
     <#--provider profile-->
 
     </#if>
-</#macro>
-<@main title="Регистрация"/>
+</body>
+</html>

@@ -12,6 +12,6 @@ public interface CooperationRepository extends JpaRepository<Cooperation, Long> 
 
     public List<Cooperation> findByProvider(User provider);
 
-    public List<Coope>
+    public Cooperation findByClient(User client);
 
 }

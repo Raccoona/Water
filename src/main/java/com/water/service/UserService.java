@@ -12,6 +12,8 @@ public interface UserService {
 
     List<User> getClients(User provider);
 
+    User getProvider(User client);
+
     User getByName(String name);
 
     void saveNewUser(UserRegistrationForm form);

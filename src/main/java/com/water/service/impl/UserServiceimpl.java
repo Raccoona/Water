@@ -1,5 +1,6 @@
 package com.water.service.impl;
 
+import com.water.model.Cooperation;
 import com.water.model.User;
 import com.water.repository.CooperationRepository;
 import com.water.repository.UserRepository;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,7 +29,17 @@ public class UserServiceimpl implements UserService {
 
     @Override
     public List<User> getClients(User provider) {
-        return coope;
+        List<Cooperation> cooperations = cooperationRepository.findByProvider(provider);
+        List<User> clients = new ArrayList<>();
+        for (Cooperation c : cooperations) {
+            clients.add(c.getClient());
+        }
+        return clients;
+    }
+
+    @Override
+    public User getProvider(User client) {
+        return cooperationRepository.findByClient(client).getProvider();
     }
 
     @Override

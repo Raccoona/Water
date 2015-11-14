@@ -13,6 +13,9 @@ public class WaterRequest {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "bottle_id")
+    private Long bottleId;
+
     @ManyToOne
     private User from;
 
@@ -63,5 +66,13 @@ public class WaterRequest {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Long getBottleId() {
+        return bottleId;
+    }
+
+    public void setBottleId(Long bottleId) {
+        this.bottleId = bottleId;
     }
 }

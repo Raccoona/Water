@@ -2,6 +2,7 @@ package com.water.service.impl;
 
 import com.water.model.Cooperation;
 import com.water.model.User;
+import com.water.model.enums.UserRole;
 import com.water.repository.CooperationRepository;
 import com.water.repository.UserRepository;
 import com.water.service.UserService;
@@ -44,8 +45,25 @@ public class UserServiceimpl implements UserService {
     }
 
     @Override
-    public User getByName(String name) {
-        return null;
+    public User getProvider(Long id) {
+        return userRepository.findOne(id);
+    }
+
+    @Override
+    public List<User> getProviders(User user) {
+        List<User> providers = userRepository.findByUserRole(UserRole.ROLE_CLIENT);
+        providers.remove(getProvider(user));
+        return providers;
+    }
+
+    @Override
+    public boolean addProvider(User client, User provider) {
+        User myProvider = getProvider(client);
+        if (myProvider!=null) {
+            cooperationRepository.save(new Cooperation(client, provider));
+            return true;
+        }
+        return false;
     }
 
     @Override

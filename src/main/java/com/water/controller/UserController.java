@@ -1,7 +1,9 @@
 package com.water.controller;
 
+import com.water.model.Bottle;
 import com.water.model.User;
 import com.water.repository.WaterRequestRepository;
+import com.water.service.BottleService;
 import com.water.service.UserService;
 import com.water.util.Security;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+    @Autowired
+    private BottleService bottleService;
 
     @Autowired
     private UserService userService;
@@ -47,7 +52,12 @@ public class UserController {
 
     @RequestMapping("/client")
     public String getClientInfo(@RequestParam("clientId") String clientId,  Model model) {
-        return "";
+        User user = Security.getCurrentUser();
+        List<User> clients = userService.getClients(user);
+        List<Bottle> bottles = bottleService.getBottlersByUser(user);
+        model.addAttribute("user", user);
+        model.addAttribute("bottles", bottles);
+        return "client";
     }
 
     @RequestMapping("/providers/get")

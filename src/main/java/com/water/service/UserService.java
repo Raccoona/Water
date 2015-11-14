@@ -22,4 +22,6 @@ public interface UserService {
 
     void saveNewUser(UserRegistrationForm form);
 
+    User getClient(Long id);
+
 }

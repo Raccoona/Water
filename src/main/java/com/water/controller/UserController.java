@@ -63,9 +63,8 @@ public class UserController {
 
     @RequestMapping("/client")
     public String getClientInfo(@RequestParam("clientId") String clientId, Model model) {
-        User user = userService.getProvider(Long.parseLong(clientId));
-        List<Bottle> bottles = bottleService.getBottlersByUser(user);
-        model.addAttribute("user", user);
+        List<Bottle> bottles = bottleService.getBottlersByUser(userService.getClient(Long.parseLong(clientId)));
+        model.addAttribute("user", Security.getCurrentUser());
         model.addAttribute("bottles", bottles);
         return "client";
     }

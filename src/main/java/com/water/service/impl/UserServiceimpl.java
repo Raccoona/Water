@@ -74,4 +74,9 @@ public class UserServiceimpl implements UserService {
     public void saveNewUser(UserRegistrationForm form) {
         userRepository.save(UserRegFormToUserTransf.transform(form));
     }
+
+    @Override
+    public User getClient(Long id) {
+        return userRepository.findById(id);
+    }
 }

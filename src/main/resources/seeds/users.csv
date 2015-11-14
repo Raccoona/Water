@@ -1,3 +1,4 @@
 ID,LOGIN,PASSWORD,NAME,ROLE
-1,test1,$2a$10$FJnwMz1bql/zefL.acaOmOvVXjvgAdP4n9dSS6rUfsly5kPDhlePK,AAAAA,ROLE_CLIENT
-2,test2,$2a$10$FJnwMz1bql/zefL.acaOmOvVXjvgAdP4n9dSS6rUfsly5kPDhlePK,BBBBB,ROLE_CLIENT
+1,test1,$2a$10$FJnwMz1bql/zefL.acaOmOvVXjvgAdP4n9dSS6rUfsly5kPDhlePK,FOSS_Labs,ROLE_CLIENT
+2,test2,$2a$10$FJnwMz1bql/zefL.acaOmOvVXjvgAdP4n9dSS6rUfsly5kPDhlePK,JBLab,ROLE_CLIENT
+3,test3,$2a$10$FJnwMz1bql/zefL.acaOmOvVXjvgAdP4n9dSS6rUfsly5kPDhlePK,WaterService,ROLE_PROVIDER

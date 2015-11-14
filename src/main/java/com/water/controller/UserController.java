@@ -2,16 +2,21 @@ package com.water.controller;
 
 import com.water.model.Bottle;
 import com.water.model.User;
+import com.water.model.WaterRequest;
+import com.water.model.enums.UserRole;
 import com.water.repository.WaterRequestRepository;
 import com.water.service.BottleService;
 import com.water.service.UserService;
 import com.water.service.WaterRequestService;
+import com.water.util.Parser;
 import com.water.util.Security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -42,13 +47,22 @@ public class UserController {
     @RequestMapping("/home")
     public String getHomePage(Model model) {
         User user = Security.getCurrentUser();
+        List<WaterRequest> waterRequests;
+        if (user.getUserRole().equals(UserRole.ROLE_CLIENT)) {
+            waterRequests = waterRequestRepository.findByFrom(user);
+        } else {
+            waterRequests = waterRequestRepository.findByTo(user);
+        }
+        model.addAttribute("waterReqs", waterRequests);
         model.addAttribute("user", user);
         return "home";
     }
 
-    @RequestMapping(name = "/request/update")
-    public String updateWaterRequest(@RequestParam("waterReqId") Long waterReqId, @RequestParam("date") Date date) {
-        waterRequestService.updateRequest(waterReqId, date);
+    @RequestMapping(value = "/request/update", method = RequestMethod.POST)
+    public String updateWaterRequest(@RequestParam("waterReqId") String waterReqId, @RequestParam("date") String date) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date dateFormatted = format.parse(date);
+        waterRequestService.updateRequest(Long.parseLong(Parser.parseId(waterReqId)), dateFormatted);
         return "redirect:/user/home";
     }
 
@@ -93,25 +107,25 @@ public class UserController {
 //        return "";
 //    }
 
-    @RequestMapping(name = "/recJson", method = RequestMethod.POST)
-    @ResponseBody
-    public void getJson(@RequestBody(required = false) Test s) {
-        String str = s.toString();
-        System.out.println("TEST");
-        System.out.println(str);
-    }
-
-    class Test {
-        private Object[] ids;
-
-        public Object[] getIds() {
-            return ids;
-        }
-
-        public void setIds(Object[] ids) {
-            this.ids = ids;
-        }
-    }
+//    @RequestMapping(name = "/recJson", method = RequestMethod.POST)
+//    @ResponseBody
+//    public void getJson(@RequestBody(required = false) Test s) {
+//        String str = s.toString();
+//        System.out.println("TEST");
+//        System.out.println(str);
+//    }
+//
+//    class Test {
+//        private Object[] ids;
+//
+//        public Object[] getIds() {
+//            return ids;
+//        }
+//
+//        public void setIds(Object[] ids) {
+//            this.ids = ids;
+//        }
+//    }
 
 
 }

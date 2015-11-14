@@ -11,7 +11,7 @@
             <div>
                 <ul class="nav navbar-nav">
                 <#if user??>
-                    <li><a id="home" href="/u/home"> Home </a></li>
+                    <li><a id="home" href="/user/home"> Home </a></li>
                     <#if user.userRole == "ROLE_CLIENT">
                         <li><a id="provider" href="/user/providers/get"> Provider </a></li>
                         <li><a id="statistics" href="/user/statistics">Statistics</a></li>

@@ -1,10 +1,6 @@
-<html>
-<head>
-
-</head>
-<body>
+<#macro m_body>
 
 ${user.name} ${user.userRole}
 
-</body>
-</html>
+</#macro>
+<@main title="${user.name}"/>

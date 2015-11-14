@@ -1,14 +1,19 @@
 package com.water.controller;
 
 import com.water.model.User;
+import com.water.model.WaterRequest;
+import com.water.model.enums.UserRole;
 import com.water.repository.WaterRequestRepository;
 import com.water.service.UserService;
+import com.water.service.WaterRequestService;
+import com.water.util.Parser;
 import com.water.util.Security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -18,6 +23,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    WaterRequestService waterRequestService;
 
     @Autowired
     WaterRequestRepository waterRequestRepository;
@@ -32,8 +40,21 @@ public class UserController {
     @RequestMapping("/home")
     public String getHomePage(Model model) {
         User user = Security.getCurrentUser();
+        List<WaterRequest> waterRequests = null;
+        if (user.getUserRole().equals(UserRole.ROLE_CLIENT)) {
+            waterRequests = waterRequestRepository.findByFrom(user);
+        } else {
+            waterRequests = waterRequestRepository.findByTo(user);
+        }
         model.addAttribute("user", user);
+        model.addAttribute("waterReq", waterRequests);
         return "home";
+    }
+
+    @RequestMapping(name = "/request/update")
+    public String updateWaterRequest(@RequestParam("waterReqId") String waterReqId, @RequestParam("date") Date date) {
+        waterRequestService.updateRequest(Long.parseLong(Parser.parseId(waterReqId)), date);
+        return "redirect:/user/home";
     }
 
     @RequestMapping("/clients/get")

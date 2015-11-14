@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface WaterRequestRepository extends JpaRepository<WaterRequest, Long> {
+public interface WaterRequestRepository extends JpaRepository<WaterRequest, Long>, WaterRepositoryCustom {
 
     List<WaterRequest> findByFrom(User from);
 

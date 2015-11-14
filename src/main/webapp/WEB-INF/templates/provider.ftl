@@ -3,8 +3,6 @@
 
 </head>
 <body>
-
-${user.name} ${user.userRole}
-
+${provider.name} ${provider.userRole}
 </body>
 </html>

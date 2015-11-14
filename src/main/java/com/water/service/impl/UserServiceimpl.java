@@ -39,7 +39,8 @@ public class UserServiceimpl implements UserService {
 
     @Override
     public User getProvider(User client) {
-        return cooperationRepository.findByClient(client).getProvider();
+        Cooperation cooperation = cooperationRepository.findByClient(client);
+        return cooperation!=null? cooperation.getProvider() : null;
     }
 
     @Override

@@ -55,13 +55,13 @@ public class UserController {
         return "";
     }
 
-    @RequestMapping(name = "/providers/add", method = RequestMethod.POST)
-    public String addProvider(@RequestParam("providerId") String providerId, Model model) {
-        User client = Security.getCurrentUser();
-        User provider = userService.getProvider(Long.parseLong(Parser.parseId(providerId)));
-        userService.addProvider(client, provider);
-        return "";
-    }
+//    @RequestMapping(name = "/providers/add", method = RequestMethod.POST)
+//    public String addProvider(@RequestParam("providerId") String providerId, Model model) {
+//        User client = Security.getCurrentUser();
+//        User provider = userService.getProvider(Long.parseLong(Parser.parseId(providerId)));
+//        userService.addProvider(client, provider);
+//        return "";
+//    }
 
     @RequestMapping(name = "/recJson", method = RequestMethod.POST)
     @ResponseBody

@@ -1,6 +1,7 @@
 package com.water.repository;
 
 
+import com.water.model.Bottle;
 import com.water.model.User;
 import com.water.model.WaterRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,6 +16,6 @@ public interface WaterRequestRepository extends JpaRepository<WaterRequest, Long
 
     List<WaterRequest> findByTo(User from);
 
-    List<WaterRequest> findByBottleId(Long bottleId);
+    List<WaterRequest> findByBottle(Bottle bottle);
 
 }

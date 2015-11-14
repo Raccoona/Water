@@ -31,7 +31,7 @@ public class WaterRequestServiceImpl implements WaterRequestService {
         Bottle bottle = bottleRepository.findOne(bottleId);
         WaterRequest request = new WaterRequest();
         User from = bottle.getUser();
-        request.setBottleId(bottleId);
+        request.setBottle(bottle);
         request.setFrom(from);
         request.setTo(userService.getProvider(from.getId()));
         request.setStatus(WaterRequestStatus.NEW);
@@ -40,7 +40,8 @@ public class WaterRequestServiceImpl implements WaterRequestService {
 
     @Override
     public void removeRequest(Long bottleId) {
-        List<WaterRequest> waterRequests = waterRequestRepository.findByBottleId(bottleId);
+        Bottle bottle = bottleRepository.findOne(bottleId);
+        List<WaterRequest> waterRequests = waterRequestRepository.findByBottle(bottle);
         for (WaterRequest request : waterRequests) {
             request.setStatus(WaterRequestStatus.CLOSED);
             waterRequestRepository.save(request);

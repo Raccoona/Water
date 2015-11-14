@@ -43,7 +43,7 @@ public class AuthController {
                                           BindingResult bindingResult) {
         //validator.validate(userRegistrationForm, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "redirect:/registration";
+            return "registration";
         }
         userService.saveNewUser(userRegistrationForm);
         return "redirect:/login";

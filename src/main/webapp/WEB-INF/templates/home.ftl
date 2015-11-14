@@ -3,7 +3,7 @@
 
 </head>
 <body>
-<#if principal.userRole.name == 0>
+<#if user.userRole.ordinal == 0>
     ${principal.name}asdasd
 <#else>
     ${principal.name}

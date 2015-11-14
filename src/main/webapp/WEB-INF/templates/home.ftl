@@ -3,4 +3,4 @@
 ${user.name} ${user.userRole}
 
 </#macro>
-<@main title="${user.name}"/>
+<@main title="Home"/>

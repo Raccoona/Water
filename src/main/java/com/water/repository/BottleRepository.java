@@ -10,7 +10,6 @@ import java.util.List;
 @Repository
 public interface BottleRepository extends JpaRepository<Bottle, Long> {
 
-
     List<Bottle> findByUser(User user);
 
 }

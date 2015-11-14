@@ -15,4 +15,6 @@ public interface WaterRequestRepository extends JpaRepository<WaterRequest, Long
 
     List<WaterRequest> findByTo(User from);
 
+    List<WaterRequest> findByBottleId(Long bottleId);
+
 }

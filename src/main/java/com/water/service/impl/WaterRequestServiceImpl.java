@@ -12,6 +12,8 @@ import com.water.service.WaterRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class WaterRequestServiceImpl implements WaterRequestService {
 
@@ -29,9 +31,19 @@ public class WaterRequestServiceImpl implements WaterRequestService {
         Bottle bottle = bottleRepository.findOne(bottleId);
         WaterRequest request = new WaterRequest();
         User from = bottle.getUser();
+        request.setBottleId(bottleId);
         request.setFrom(from);
         request.setTo(userService.getProvider(from.getId()));
         request.setStatus(WaterRequestStatus.NEW);
         waterRequestRepository.save(request);
+    }
+
+    @Override
+    public void removeRequest(Long bottleId) {
+        List<WaterRequest> waterRequests = waterRequestRepository.findByBottleId(bottleId);
+        for (WaterRequest request : waterRequests) {
+            request.setStatus(WaterRequestStatus.CLOSED);
+            waterRequestRepository.save(request);
+        }
     }
 }

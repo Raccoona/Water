@@ -7,4 +7,5 @@ public interface WaterRequestService {
 
     void addRequest(Long bottleId);
 
+    void removeRequest(Long bottleId);
 }

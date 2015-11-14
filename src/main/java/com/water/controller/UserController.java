@@ -1,6 +1,9 @@
 package com.water.controller;
 
+import com.water.model.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,8 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserController {
 
     @RequestMapping("/home")
-    public String getHomePage() {
+    public String getHomePage(Model model) {
+         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal(); 
+        model.addAttribute("principal", user);
         return "home";
+
     }
 
     @RequestMapping(name = "/recJson", method = RequestMethod.POST)
@@ -23,7 +29,7 @@ public class UserController {
         System.out.println(str);
     }
 
-    class Test{
+    class Test {
         private Object[] ids;
 
         public Object[] getIds() {

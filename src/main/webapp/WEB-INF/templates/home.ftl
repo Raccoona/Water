@@ -3,6 +3,12 @@
 
 </head>
 <body>
-<h1> Hello, client! </h1>
+<#if principal.role == "ROLE_CLIENT">
+    principal.name
+    principal.role
+<#else>
+    principal.name
+    principal.role
+</#if>
 </body>
 </html>

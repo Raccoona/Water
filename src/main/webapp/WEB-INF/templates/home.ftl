@@ -2,9 +2,15 @@
 <#macro m_body>
 
 <div>${user.name}</div>
-<div>${user.city}</div>
-<div>${user.mobilePhone}</div>
-<div>${user.email}</div>
+    <#if user.city??>
+    <div>${user.city}</div>
+    </#if>
+    <#if user.city??>
+    <div>${user.mobilePhone}</div>
+    </#if>
+    <#if user.city??>
+    <div>${user.email}</div>
+    </#if>
 
 </#macro>
 <@main title="Index"/>

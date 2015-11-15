@@ -1,5 +1,6 @@
 package com.water.service.impl;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import com.water.model.Bottle;
 import com.water.model.User;
 import com.water.model.WaterRequest;
@@ -31,6 +32,10 @@ public class WaterRequestServiceImpl implements WaterRequestService {
     @Override
     public void addRequest(Long bottleId) {
         Bottle bottle = bottleRepository.findOne(bottleId);
+        boolean alreadyExists = waterRequestRepository.countByBottleAndStatus(bottle, WaterRequestStatus.NEW) > 0;
+        if (alreadyExists) {
+            return;
+        }
         WaterRequest request = new WaterRequest();
         User from = bottle.getUser();
         request.setBottle(bottle);

@@ -3,7 +3,7 @@
 <div>
     <h2>${user.name}</h2>
 </div>
-    <input type="hidden" style="display: none" name="userId" value=${client.id}>
+    <input id="YA" type="hidden" style="display: none" name="userId" value=${client.id}>
     <#if bottles??>
     <div id="waterList">
         <#list bottles as bottle>

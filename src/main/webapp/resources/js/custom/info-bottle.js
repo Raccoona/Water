@@ -1,6 +1,6 @@
 $(document).ready(function updateWater() {
 
-    var userId = $('input').val();
+    var userId = $('#YA').val();
 
     setInterval(query, 5000);
 
@@ -13,7 +13,7 @@ $(document).ready(function updateWater() {
                 userId: userId
             },
             success: function (data) {
-                $("#js-bottles").html(data);
+                $("#waterList").html(data);
             }
         })
     }

@@ -1,5 +1,9 @@
 package com.water.controller;
 
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import com.water.model.Bottle;
 import com.water.model.User;
 import com.water.model.WaterRequest;
@@ -62,6 +66,17 @@ public class UserController {
     @RequestMapping(name = "/request/update")
     public String updateWaterRequest(@RequestParam("waterReqId") Long waterReqId, @RequestParam("date") Date date) {
         waterRequestService.updateRequest(waterReqId, date);
+
+        try {
+            HttpResponse<JsonNode> jsonResponse = Unirest.post("http://localhost:20000/date")
+                    .header("accept", "application/json")
+                    .body(date)
+                    .asJson();
+            System.out.println(jsonResponse.getStatusText());
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        }
+
         return "redirect:/user/home";
     }
 

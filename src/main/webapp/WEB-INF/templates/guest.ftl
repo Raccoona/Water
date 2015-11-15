@@ -45,39 +45,12 @@
         <h3>Присоедениться</h3>
 
 
-    <#--<form class="form-horizontal">-->
-    <#--<div class="form-group">-->
-    <#--<div class="col-lg-12">-->
-    <#--<input type="text" class="form-control form-block" placeholder="Enter your username">-->
-    <#--</div>-->
-    <#--</div>-->
-    <#--<div class="form-group">-->
-    <#--<div class="col-lg-12">-->
-    <#--<input type="text" class="form-control form-block" placeholder="Enter your email address">-->
-    <#--</div>-->
-    <#--</div>-->
-    <#--<div class="form-group">-->
-    <#--<div class="col-lg-12">-->
-    <#--<input type="text" class="form-control form-block" placeholder="Enter your password">-->
-    <#--</div>-->
-    <#--</div>-->
-    <#--<div class="form-group">-->
-    <#--<div class="col-lg-12">-->
-    <#--<input type="text" class="form-control form-block" placeholder="Retype your password">-->
-    <#--</div>-->
-    <#--</div>-->
-    <#--<div class="form-group">-->
-    <#--<div class="col-lg-12">-->
-    <#--<input type="submit" value="Отправить">-->
-    <#--</div>-->
-    <#--</div>-->
-    <#--</form>-->
-    <#--</div>-->
+
     <@sf.form action="/registration" cssClass="form-horizontal" method="post" modelAttribute="userform">
 
         <div class="form-group">
             <div class="col-lg-12">
-                <@sf.input path="name" cssClass="form-control form-block" placeholder="Enter your username" />
+                <@sf.input path="name" cssClass="form-control form-block" placeholder="Введите название компании" />
                     <@sf.errors path="name"/>
             </div>
         </div>
@@ -94,7 +67,7 @@
 
         <div class="form-group">
             <div class="col-lg-12">
-                <@sf.input path="city" cssClass="form-control form-block" placeholder="Enter your username" />
+                <@sf.input path="city" cssClass="form-control form-block" placeholder="Город" />
                     <@sf.errors path="city"/>
             </div>
         </div>
@@ -102,7 +75,7 @@
 
         <div class="form-group">
             <div class="col-lg-12">
-                <@sf.input path="mobilePhone" cssClass="form-control form-block" placeholder="Enter your username" />
+                <@sf.input path="mobilePhone" cssClass="form-control form-block" placeholder="Мобильный телефон" />
                     <@sf.errors path="mobilePhone"/>
             </div>
         </div>
@@ -110,7 +83,7 @@
 
         <div class="form-group">
             <div class="col-lg-12">
-                <@sf.input path="email" cssClass="form-control form-block" placeholder="Enter your username" />
+                <@sf.input path="email" cssClass="form-control form-block" placeholder="Email" />
                     <@sf.errors path="email"/>
             </div>
         </div>
@@ -118,7 +91,7 @@
 
         <div class="form-group">
             <div class="col-lg-12">
-                <@sf.input path="login" cssClass="form-control form-block" placeholder="Enter your username" />
+                <@sf.input path="login" cssClass="form-control form-block" placeholder="Логин" />
                     <@sf.errors path="login"/>
             </div>
         </div>
@@ -126,7 +99,7 @@
 
         <div class="form-group">
             <div class="col-lg-12">
-                <@sf.input path="password" cssClass="form-control form-block" placeholder="Enter your username" />
+                <@sf.input path="password" cssClass="form-control form-block" placeholder="Пароль" />
                     <@sf.errors path="password"/>
             </div>
         </div>
@@ -134,7 +107,7 @@
 
         <div class="form-group">
             <div class="col-lg-12">
-                <@sf.input path="repassword" cssClass="form-control form-block" placeholder="Enter your username" />
+                <@sf.input path="repassword" cssClass="form-control form-block" placeholder="Потвердите пароль" />
                     <@sf.errors path="repassword"/>
             </div>
         </div>
@@ -152,18 +125,18 @@
         <form role="form" class="form-horizontal" method="post" action="/login/process">
             <div class="form-group">
                 <div class="col-lg-12">
-                    <input id="login" name="login"  class="form-control form-block"  type="text" required />
+                    <input id="login" name="login" class="form-control form-block" type="text" required/>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-lg-12">
-                    <input id="password" name="password" class="form-control form-block"  type="password" required />
+                    <input id="password" name="password" class="form-control form-block" type="password" required/>
                 <#if error??> Invalid login or password! </#if>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-lg-12">
-                    <input type="submit" value="Отправить" />
+                    <input type="submit" value="Отправить"/>
                 </div>
             </div>
         </form>
@@ -203,8 +176,6 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#about">Про нас</a>
                     </li>
-                    <li><a href="#features">Общая выгода</a>
-                    </li>
                     <li class="sign-in"><a style="cursor: pointer;" id="megaSuperMenMaximAndreyLysiAidarSashaIDR">Присоедениться</a>
                     </li>
                 </ul>
@@ -235,7 +206,7 @@
                          data-speed="500"
                          data-start="700"
                          data-easing="Power4.easeOut">
-                        <img src="/resources/img/freeze/Slides/hand-freeze.png" alt="">
+                        <img src="/resources/img/1.jpg" alt="">
                     </div>
 
                     <div class="tp-caption lfl fadeout visible-xs"
@@ -284,7 +255,7 @@
                          data-speed="1000"
                          data-start="700"
                          data-easing="Power4.easeOut">
-                        <img src="/resources/img/freeze/Slides/freeze-slide2.png" alt="">
+                        <img src="/resources/img/images.jpeg" alt="">
                     </div>
 
 
@@ -314,7 +285,7 @@
                          data-speed="1000"
                          data-start="700"
                          data-easing="Power4.easeOut">
-                        <img src="/resources/img/freeze/Slides/freeze.png" alt="">
+                        <img src="/resources/img/120802103017.jpg" alt="">
                     </div>
 
                     <div class="tp-caption customin customout visible-xs"
@@ -327,7 +298,7 @@
                          data-speed="1000"
                          data-start="700"
                          data-easing="Power4.easeOut">
-                        <img src="/resources/img/freeze/Slides/freeze.png" alt="">
+                        <img src="/resources/img/1.jpg" alt="">
                     </div>
 
                     <div class="tp-caption lfb visible-xs" data-x="center" data-y="center" data-hoffset="0"
@@ -434,135 +405,134 @@
         </div>
     </section>
 
-    <section id="features">
-        <div class="container">
-            <div class="section-heading scrollpoint sp-effect3">
-                <h1>Features</h1>
+<section id="features">
+<div class="container">
+<div class="section-heading scrollpoint sp-effect3">
+<h1>Features</h1>
 
-                <div class="divider"></div>
-                <p>Learn more about this feature packed App</p>
-            </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-4 scrollpoint sp-effect1">
-                    <div class="media media-left feature">
-                        <a class="pull-right" href="#">
-                            <i class="fa fa-cogs fa-2x"></i>
-                        </a>
+<div class="divider"></div>
+<p>Learn more about this feature packed App</p>
+</div>
+<div class="row">
+<div class="col-md-4 col-sm-4 scrollpoint sp-effect1">
+<div class="media media-left feature">
+<a class="pull-right" href="#">
+<i class="fa fa-cogs fa-2x"></i>
+</a>
 
-                        <div class="media-body">
-                            <h3 class="media-heading">User Settings</h3>
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                    </div>
-                    <div class="media media-left feature">
-                        <a class="pull-right" href="#">
-                            <i class="fa fa-envelope fa-2x"></i>
-                        </a>
+<div class="media-body">
+<h3 class="media-heading">User Settings</h3>
+Lorem ipsum dolor sit amet.
+</div>
+</div>
+<div class="media media-left feature">
+<a class="pull-right" href="#">
+<i class="fa fa-envelope fa-2x"></i>
+</a>
 
-                        <div class="media-body">
-                            <h3 class="media-heading">Messages Inbox</h3>
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                    </div>
-                    <div class="media media-left feature">
-                        <a class="pull-right" href="#">
-                            <i class="fa fa-users fa-2x"></i>
-                        </a>
+<div class="media-body">
+<h3 class="media-heading">Messages Inbox</h3>
+Lorem ipsum dolor sit amet.
+</div>
+</div>
+<div class="media media-left feature">
+<a class="pull-right" href="#">
+<i class="fa fa-users fa-2x"></i>
+</a>
 
-                        <div class="media-body">
-                            <h3 class="media-heading">Friends List</h3>
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                    </div>
-                    <div class="media media-left feature">
-                        <a class="pull-right" href="#">
-                            <i class="fa fa-comments fa-2x"></i>
-                        </a>
+<div class="media-body">
+<h3 class="media-heading">Friends List</h3>
+Lorem ipsum dolor sit amet.
+</div>
+</div>
+<div class="media media-left feature">
+<a class="pull-right" href="#">
+<i class="fa fa-comments fa-2x"></i>
+</a>
 
-                        <div class="media-body">
-                            <h3 class="media-heading">Live Chat Messages</h3>
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                    </div>
-                    <div class="media media-left feature">
-                        <a class="pull-right" href="#">
-                            <i class="fa fa-calendar fa-2x"></i>
-                        </a>
+<div class="media-body">
+<h3 class="media-heading">Live Chat Messages</h3>
+Lorem ipsum dolor sit amet.
+</div>
+</div>
+<div class="media media-left feature">
+<a class="pull-right" href="#">
+<i class="fa fa-calendar fa-2x"></i>
+</a>
 
-                        <div class="media-body">
-                            <h3 class="media-heading">Calendar / Planner</h3>
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <img src="/resources/img/freeze/iphone-freeze.png" class="img-responsive scrollpoint sp-effect5"
-                         alt="">
-                </div>
-                <div class="col-md-4 col-sm-4 scrollpoint sp-effect2">
-                    <div class="media feature">
-                        <a class="pull-left" href="#">
-                            <i class="fa fa-map-marker fa-2x"></i>
-                        </a>
+<div class="media-body">
+<h3 class="media-heading">Calendar / Planner</h3>
+Lorem ipsum dolor sit amet.
+</div>
+</div>
+</div>
+<div class="col-md-4 col-sm-4">
+<img src="/resources/img/freeze/iphone-freeze.png" class="img-responsive scrollpoint sp-effect5"
+alt="">
+</div>
+<div class="col-md-4 col-sm-4 scrollpoint sp-effect2">
+<div class="media feature">
+<a class="pull-left" href="#">
+<i class="fa fa-map-marker fa-2x"></i>
+</a>
 
-                        <div class="media-body">
-                            <h3 class="media-heading">My Places</h3>
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                    </div>
-                    <div class="media feature">
-                        <a class="pull-left" href="#">
-                            <i class="fa fa-film fa-2x"></i>
-                        </a>
+<div class="media-body">
+<h3 class="media-heading">My Places</h3>
+Lorem ipsum dolor sit amet.
+</div>
+</div>
+<div class="media feature">
+<a class="pull-left" href="#">
+<i class="fa fa-film fa-2x"></i>
+</a>
 
-                        <div class="media-body">
-                            <h3 class="media-heading">Media Player™</h3>
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                    </div>
-                    <div class="media feature">
-                        <a class="pull-left" href="#">
-                            <i class="fa fa-compass fa-2x"></i>
-                        </a>
+<div class="media-body">
+<h3 class="media-heading">Media Player™</h3>
+Lorem ipsum dolor sit amet.
+</div>
+</div>
+<div class="media feature">
+<a class="pull-left" href="#">
+<i class="fa fa-compass fa-2x"></i>
+</a>
 
-                        <div class="media-body">
-                            <h3 class="media-heading">Intuitive Statistics</h3>
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                    </div>
-                    <div class="media feature">
-                        <a class="pull-left" href="#">
-                            <i class="fa fa-picture-o fa-2x"></i>
-                        </a>
+<div class="media-body">
+<h3 class="media-heading">Intuitive Statistics</h3>
+Lorem ipsum dolor sit amet.
+</div>
+</div>
+<div class="media feature">
+<a class="pull-left" href="#">
+<i class="fa fa-picture-o fa-2x"></i>
+</a>
 
-                        <div class="media-body">
-                            <h3 class="media-heading">Weather on-the-go</h3>
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                    </div>
-                    <div class="media active feature">
-                        <a class="pull-left" href="#">
-                            <i class="fa fa-plus fa-2x"></i>
-                        </a>
+<div class="media-body">
+<h3 class="media-heading">Weather on-the-go</h3>
+Lorem ipsum dolor sit amet.
+</div>
+</div>
+<div class="media active feature">
+<a class="pull-left" href="#">
+<i class="fa fa-plus fa-2x"></i>
+</a>
 
-                        <div class="media-body ">
-                            <h3 class="media-heading nan-text">Присоедениться!</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="media-body ">
+<h3 class="media-heading nan-text">Присоедениться!</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
     <footer>
         <div class="container">
             <a href="#" class="scrollpoint sp-effect3">
                 <img src="/resources/img/freeze/logo.png" alt="" class="logo">
             </a>
 
-
             <div class="rights">
-                <p>JetBrains 2015</p>
-
+                <p>JetBrains 2014</p>
             </div>
         </div>
     </footer>
@@ -581,7 +551,7 @@
     $(document).ready(function () {
         appMaster.preLoader();
     });
-    <#if errorReg??>
+    <#if errorReg?? || error??>
     $('#dark-bg').fadeIn();
     $('#content-body').fadeIn();
 

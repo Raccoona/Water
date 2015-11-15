@@ -2,6 +2,8 @@ package com.water.controller;
 
 import com.water.model.Bottle;
 import com.water.model.User;
+import com.water.model.WaterRequest;
+import com.water.model.enums.WaterRequestStatus;
 import com.water.repository.WaterRequestRepository;
 import com.water.service.BottleService;
 import com.water.service.UserService;
@@ -12,8 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 @Controller
@@ -35,7 +36,19 @@ public class UserController {
     @RequestMapping("/main")
     public String getMainPage(Model model) {
         model.addAttribute("user", Security.getCurrentUser());
-        model.addAttribute("waterRequests", waterRequestRepository.findByFrom(Security.getCurrentUser()));
+        List<WaterRequest> requests = waterRequestRepository.findByFrom(Security.getCurrentUser());
+        Collections.sort(requests, new Comparator<WaterRequest>() {
+            @Override
+            public int compare(WaterRequest o1, WaterRequest o2) {
+                List<WaterRequestStatus> statuses = new ArrayList<WaterRequestStatus>() {{
+                    add(WaterRequestStatus.NEW);
+                    add(WaterRequestStatus.ACCEPTED);
+                    add(WaterRequestStatus.CLOSED);
+                }};
+                return statuses.indexOf(o1.getStatus()) - statuses.indexOf(o2.getStatus());
+            }
+        });
+        model.addAttribute("waterRequests", requests);
         return "main";
     }
 

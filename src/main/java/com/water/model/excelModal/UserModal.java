@@ -1,45 +1,49 @@
 package com.water.model.excelModal;
 
-import com.water.model.UserStat;
-
-import java.util.Date;
-import java.util.List;
-
 public class UserModal {
-    private String username;
-    private Date startDate;
-    private Date endDate;
-    private List<UserStat> stats;
+    private String name;
+    private String startDate;
+    private String endDate;
+    private String curDate;
+    private String value;
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 
-    public List<UserStat> getStats() {
-        return stats;
+    public String getCurDate() {
+        return curDate;
     }
 
-    public void setStats(List<UserStat> stats) {
-        this.stats = stats;
+    public void setCurDate(String curDate) {
+        this.curDate = curDate;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }

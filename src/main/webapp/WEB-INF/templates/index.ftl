@@ -12,7 +12,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Oleose App Landing Page | Bootstrap Theme</title>
+    <title>WaterInf | Автоматический заказ доставки воды</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <link rel="shortcut icon" href="/resources/favicon.png">
@@ -42,7 +42,7 @@
 </div>
 <div id="content-body">
     <div id="right">
-        <h3>Присоедениться</h3>
+        <h3>Присоединиться</h3>
 
 
 
@@ -58,8 +58,8 @@
         <div class="form-group">
             <div class="col-lg-12">
                 <@sf.select path="userRole" cssClass="form-control">
-                    <@sf.option value=0> Client </@sf.option>
-                    <@sf.option value=1> Provider </@sf.option>
+                    <@sf.option value=0> Клиент </@sf.option>
+                    <@sf.option value=1> Поставщик </@sf.option>
                 </@sf.select>
                 <@sf.errors path="userRole"/>
             </div>
@@ -107,7 +107,7 @@
 
         <div class="form-group">
             <div class="col-lg-12">
-                <@sf.input path="repassword" cssClass="form-control form-block" placeholder="Потвердите пароль" />
+                <@sf.input path="repassword" cssClass="form-control form-block" placeholder="Подтвердите пароль" />
                     <@sf.errors path="repassword"/>
             </div>
         </div>
@@ -120,7 +120,7 @@
     </@sf.form>
     </div>
     <div id="left">
-        <h3>Авторизироваться</h3>
+        <h3>Авторизоваться</h3>
 
         <form role="form" class="form-horizontal" method="post" action="/login/process">
             <div class="form-group">
@@ -131,7 +131,7 @@
             <div class="form-group">
                 <div class="col-lg-12">
                     <input id="password" name="password" class="form-control form-block" type="password" required/>
-                <#if error??> Invalid login or password! </#if>
+                <#if error??> Неверный логин или пароль! </#if>
                 </div>
             </div>
             <div class="form-group">
@@ -174,9 +174,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#about">Про нас</a>
+                    <li><a href="#about">Как это работает</a>
                     </li>
-                    <li class="sign-in"><a style="cursor: pointer;" id="megaSuperMenMaximAndreyLysiAidarSashaIDR">Присоедениться</a>
+                    <li class="sign-in"><a style="cursor: pointer;" id="megaSuperMenMaximAndreyLysiAidarSashaIDR">Присоединиться</a>
                     </li>
                 </ul>
             </div>
@@ -222,15 +222,15 @@
 
                     <div class="tp-caption large_white_bold sft" data-x="550" data-y="center" data-hoffset="0"
                          data-voffset="-80" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
-                        Oleose
+                        Закончилась вода,
                     </div>
                     <div class="tp-caption large_white_light sfr" data-x="770" data-y="center" data-hoffset="0"
                          data-voffset="-80" data-speed="500" data-start="1400" data-easing="Power4.easeOut">
-                        App
+                        а Вы не успели
                     </div>
                     <div class="tp-caption large_white_light sfb" data-x="550" data-y="center" data-hoffset="0"
                          data-voffset="0" data-speed="1000" data-start="1500" data-easing="Power4.easeOut">
-                        Landing Theme
+                        заказать ее заблаговременно?
                     </div>
 
                     <div class="tp-caption sfb hidden-xs" data-x="550" data-y="center" data-hoffset="0"
@@ -261,7 +261,7 @@
 
                     <div class="tp-caption large_white_light sft" data-x="center" data-y="250" data-hoffset="0"
                          data-voffset="0" data-speed="1000" data-start="1400" data-easing="Power4.easeOut">
-                        Every Pixel <i class="fa fa-heart"></i>
+                        Вам приходиться тратить время на оформление заказа? <i class="fa fa-heart"></i>
                     </div>
 
 
@@ -310,21 +310,17 @@
                     <div class="tp-caption mediumlarge_light_white sfl hidden-xs" data-x="left" data-y="center"
                          data-hoffset="0" data-voffset="-50" data-speed="1000" data-start="1000"
                          data-easing="Power4.easeOut">
-                        Powerful Responsive
+                        Мы предлагаем Вам
                     </div>
                     <div class="tp-caption mediumlarge_light_white sft hidden-xs" data-x="left" data-y="center"
                          data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1200"
                          data-easing="Power4.easeOut">
-                        App Landing Page
+                        систему управления,
                     </div>
                     <div class="tp-caption small_light_white sfb hidden-xs" data-x="left" data-y="center"
                          data-hoffset="0" data-voffset="80" data-speed="1000" data-start="1600"
                          data-easing="Power4.easeOut">
-                        <p>Nulla pretium libero interdum, tempus lorem non, rutrum diam. <br> Quisque pellentesque
-                            diam
-                            sed pulvinar lobortis. Vestibulum ante <br>ipsum primis in faucibus orci luctus et
-                            ultrices
-                            posuere cubilia Curae.</p>
+                        <p>которая будет определять, сколько воды осталось в кулере, и автоматически оформлять заказ на доставку.</p>
                     </div>
 
                     <div class="tp-caption lfl hidden-xs" data-x="left" data-y="center" data-hoffset="0"
@@ -350,10 +346,10 @@
         <div class="container">
 
             <div class="section-heading scrollpoint sp-effect3">
-                <h1>About Us</h1>
+                <h1>Как это работает?</h1>
 
                 <div class="divider"></div>
-                <p>Oleose Beautiful App Landing Page</p>
+                <p>WaterInf Автоматический заказ доставки воды в офис и на дом</p>
             </div>
 
             <div class="row">
@@ -361,44 +357,36 @@
                     <div class="about-item scrollpoint sp-effect2">
                         <i class="fa fa-download fa-2x"></i>
 
-                        <h3>Easy setup</h3>
+                        <h3>Шаг первый</h3>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut
-                            labore et dolore.</p>
+                        <p>Мы устанавливаем датчики в каждый кулер</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-6">
                     <div class="about-item scrollpoint sp-effect5">
                         <i class="fa fa-mobile fa-2x"></i>
 
-                        <h3>On-the-go</h3>
+                        <h3>Шаг второй</h3>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut
-                            labore et dolore.</p>
+                        <p>Вы регистрируетесь в Личном Кабинете для управления заказами</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-6">
                     <div class="about-item scrollpoint sp-effect5">
                         <i class="fa fa-users fa-2x"></i>
 
-                        <h3>Social connect</h3>
+                        <h3>Работаем</h3>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut
-                            labore et dolore.</p>
+                        <p>Когда вода заканчивается, поставщику автоматически будет отправлена заявка на доставку</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-6">
                     <div class="about-item scrollpoint sp-effect1">
                         <i class="fa fa-sliders fa-2x"></i>
 
-                        <h3>Dedicated support</h3>
+                        <h3>Ждем</h3>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut
-                            labore et dolore.</p>
+                        <p>В установленное Вами время к Вам в офис привезут бутыли с водой</p>
                     </div>
                 </div>
             </div>
@@ -408,10 +396,10 @@
 <section id="features">
 <div class="container">
 <div class="section-heading scrollpoint sp-effect3">
-<h1>Features</h1>
+<h1>Особенности</h1>
 
 <div class="divider"></div>
-<p>Learn more about this feature packed App</p>
+<p>Узнайте больше о нашей системе</p>
 </div>
 <div class="row">
 <div class="col-md-4 col-sm-4 scrollpoint sp-effect1">
@@ -421,8 +409,8 @@
 </a>
 
 <div class="media-body">
-<h3 class="media-heading">User Settings</h3>
-Lorem ipsum dolor sit amet.
+<h3 class="media-heading">Быстрая установка</h3>
+
 </div>
 </div>
 <div class="media media-left feature">
@@ -431,7 +419,7 @@ Lorem ipsum dolor sit amet.
 </a>
 
 <div class="media-body">
-<h3 class="media-heading">Messages Inbox</h3>
+<h3 class="media-heading">Удобное управление настройками</h3>
 Lorem ipsum dolor sit amet.
 </div>
 </div>
@@ -441,8 +429,8 @@ Lorem ipsum dolor sit amet.
 </a>
 
 <div class="media-body">
-<h3 class="media-heading">Friends List</h3>
-Lorem ipsum dolor sit amet.
+<h3 class="media-heading">Моментальные оповещения на телефон</h3>
+Через СМС или звонки
 </div>
 </div>
 <div class="media media-left feature">
@@ -451,8 +439,8 @@ Lorem ipsum dolor sit amet.
 </a>
 
 <div class="media-body">
-<h3 class="media-heading">Live Chat Messages</h3>
-Lorem ipsum dolor sit amet.
+<h3 class="media-heading">Автоматические твиты</h3>
+Делитесь заказами с друзьями
 </div>
 </div>
 <div class="media media-left feature">
@@ -461,8 +449,8 @@ Lorem ipsum dolor sit amet.
 </a>
 
 <div class="media-body">
-<h3 class="media-heading">Calendar / Planner</h3>
-Lorem ipsum dolor sit amet.
+<h3 class="media-heading">Быстрая доставка</h3>
+Минимум ожидания
 </div>
 </div>
 </div>
@@ -477,8 +465,8 @@ alt="">
 </a>
 
 <div class="media-body">
-<h3 class="media-heading">My Places</h3>
-Lorem ipsum dolor sit amet.
+<h3 class="media-heading">Просмотр истории предыдущих заказов</h3>
+Для контроля потребления воды
 </div>
 </div>
 <div class="media feature">
@@ -487,8 +475,8 @@ Lorem ipsum dolor sit amet.
 </a>
 
 <div class="media-body">
-<h3 class="media-heading">Media Player™</h3>
-Lorem ipsum dolor sit amet.
+<h3 class="media-heading">Выбор поставщика</h3>
+
 </div>
 </div>
 <div class="media feature">
@@ -497,8 +485,8 @@ Lorem ipsum dolor sit amet.
 </a>
 
 <div class="media-body">
-<h3 class="media-heading">Intuitive Statistics</h3>
-Lorem ipsum dolor sit amet.
+<h3 class="media-heading">А также времени доставки</h3>
+
 </div>
 </div>
 <div class="media feature">
@@ -507,8 +495,8 @@ Lorem ipsum dolor sit amet.
 </a>
 
 <div class="media-body">
-<h3 class="media-heading">Weather on-the-go</h3>
-Lorem ipsum dolor sit amet.
+<h3 class="media-heading">И количества бутылей</h3>
+
 </div>
 </div>
 <div class="media active feature">
@@ -517,7 +505,7 @@ Lorem ipsum dolor sit amet.
 </a>
 
 <div class="media-body ">
-<h3 class="media-heading nan-text">Присоедениться!</h3>
+<h3 class="media-heading nan-text">Присоединиться!</h3>
 </div>
 </div>
 </div>
@@ -532,7 +520,7 @@ Lorem ipsum dolor sit amet.
             </a>
 
             <div class="rights">
-                <p>JetBrains 2014</p>
+                <p>JetBrainsLab 2015</p>
             </div>
         </div>
     </footer>

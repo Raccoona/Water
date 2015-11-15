@@ -3,10 +3,12 @@ package com.water.controller;
 import com.water.model.Bottle;
 import com.water.repository.BottleRepository;
 import com.water.service.WaterRequestService;
+import com.water.util.form.UserRegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,9 +26,13 @@ public class IndexController {
     WaterRequestService waterRequestService;
 
     @RequestMapping("/")
-    public String index(Model model) {
+    public String index(@RequestParam(value = "error", required = false) Boolean error, Model model) {
         List<Bottle> bottles = bottleRepository.findAll();
         model.addAttribute("bottles", bottles);
+        model.addAttribute("userform", new UserRegistrationForm());
+        if (Boolean.TRUE.equals(error)) {
+            model.addAttribute("error", error);
+        }
         return "index";
     }
 

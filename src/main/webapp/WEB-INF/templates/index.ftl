@@ -1,5 +1,5 @@
-<#include "main-template.ftl"/>
-<#macro m_body>
+<#assign sf=JspTaglibs["http://www.springframework.org/tags/form"]>
+<!doctype html>
 <!--[if lt IE 7]>
 <html lang="en" class="no-js ie6"><![endif]-->
 <!--[if IE 7]>
@@ -15,8 +15,20 @@
     <title>Oleose App Landing Page | Bootstrap Theme</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <link rel="shortcut icon" href="favicon.png">
+    <link rel="shortcut icon" href="/resources/favicon.png">
 
+    <link rel="stylesheet" href="/resources/css/cool/bootstrap.css">
+    <link rel="stylesheet" href="/resources/css/cool/modal.css">
+
+    <link rel="stylesheet" href="/resources/css/cool/animate.css">
+    <link rel="stylesheet" href="/resources/css/cool/font-awesome.min.css">
+    <link rel="stylesheet" href="/resources/css/cool/slick.css">
+    <link rel="stylesheet" href="/resources/js/cool/rs-plugin/css/settings.css">
+
+    <link rel="stylesheet" href="/resources/css/cool/freeze.css">
+
+
+    <script type="text/javascript" src="/resources/js/cool/modernizr.custom.32033.js"></script>
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -25,64 +37,133 @@
 
 </head>
 
-<script>
-    $(document).ready(function () {
-        appMaster.preLoader();
-    });
-</script>
-
-
+<body>
 <div id="dark-bg">
 </div>
 <div id="content-body">
     <div id="right">
         <h3>Присоедениться</h3>
 
-        <form class="form-horizontal">
-            <div class="form-group">
-                <div class="col-lg-12">
-                    <input type="text" class="form-control form-block" placeholder="Enter your username">
-                </div>
+
+    <#--<form class="form-horizontal">-->
+    <#--<div class="form-group">-->
+    <#--<div class="col-lg-12">-->
+    <#--<input type="text" class="form-control form-block" placeholder="Enter your username">-->
+    <#--</div>-->
+    <#--</div>-->
+    <#--<div class="form-group">-->
+    <#--<div class="col-lg-12">-->
+    <#--<input type="text" class="form-control form-block" placeholder="Enter your email address">-->
+    <#--</div>-->
+    <#--</div>-->
+    <#--<div class="form-group">-->
+    <#--<div class="col-lg-12">-->
+    <#--<input type="text" class="form-control form-block" placeholder="Enter your password">-->
+    <#--</div>-->
+    <#--</div>-->
+    <#--<div class="form-group">-->
+    <#--<div class="col-lg-12">-->
+    <#--<input type="text" class="form-control form-block" placeholder="Retype your password">-->
+    <#--</div>-->
+    <#--</div>-->
+    <#--<div class="form-group">-->
+    <#--<div class="col-lg-12">-->
+    <#--<input type="submit" value="Отправить">-->
+    <#--</div>-->
+    <#--</div>-->
+    <#--</form>-->
+    <#--</div>-->
+    <@sf.form action="/registration" cssClass="form-horizontal" method="post" modelAttribute="userform">
+
+        <div class="form-group">
+            <div class="col-lg-12">
+                <@sf.input path="name" cssClass="form-control form-block" placeholder="Enter your username" />
+                    <@sf.errors path="name"/>
             </div>
-            <div class="form-group">
-                <div class="col-lg-12">
-                    <input type="text" class="form-control form-block" placeholder="Enter your email address">
-                </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-12">
+                <@sf.select path="userRole" cssClass="form-control">
+                    <@sf.option value=0> Client </@sf.option>
+                    <@sf.option value=1> Provider </@sf.option>
+                </@sf.select>
+                <@sf.errors path="userRole"/>
             </div>
-            <div class="form-group">
-                <div class="col-lg-12">
-                    <input type="text" class="form-control form-block" placeholder="Enter your password">
-                </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-12">
+                <@sf.input path="city" cssClass="form-control form-block" placeholder="Enter your username" />
+                    <@sf.errors path="city"/>
             </div>
-            <div class="form-group">
-                <div class="col-lg-12">
-                    <input type="text" class="form-control form-block" placeholder="Retype your password">
-                </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-lg-12">
+                <@sf.input path="mobilePhone" cssClass="form-control form-block" placeholder="Enter your username" />
+                    <@sf.errors path="mobilePhone"/>
             </div>
-            <div class="form-group">
-                <div class="col-lg-12">
-                    <input type="submit" value="Отправить">
-                </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-lg-12">
+                <@sf.input path="email" cssClass="form-control form-block" placeholder="Enter your username" />
+                    <@sf.errors path="email"/>
             </div>
-        </form>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-lg-12">
+                <@sf.input path="login" cssClass="form-control form-block" placeholder="Enter your username" />
+                    <@sf.errors path="login"/>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-lg-12">
+                <@sf.input path="password" cssClass="form-control form-block" placeholder="Enter your username" />
+                    <@sf.errors path="password"/>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-lg-12">
+                <@sf.input path="repassword" cssClass="form-control form-block" placeholder="Enter your username" />
+                    <@sf.errors path="repassword"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-12">
+                <input type="submit" value="Отправить"/>
+            </div>
+        </div>
+    </@sf.form>
     </div>
     <div id="left">
         <h3>Авторизироваться</h3>
 
-        <form class="form-horizontal">
+        <form role="form" class="form-horizontal" method="post" action="/login/process">
             <div class="form-group">
                 <div class="col-lg-12">
-                    <input type="text" class="form-control form-block" placeholder="Enter your email address">
+                    <input id="login" name="login" class="form-control form-block" type="text" required/>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-lg-12">
-                    <input type="text" class="form-control form-block" placeholder="Enter your password">
+                    <input id="password" name="password" class="form-control form-block" type="password" required/>
+                <#if error??> Invalid login or password! </#if>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-lg-12">
-                    <input type="submit" value="Отправить">
+                    <input type="submit" value="Отправить"/>
                 </div>
             </div>
         </form>
@@ -268,8 +349,10 @@
                     <div class="tp-caption small_light_white sfb hidden-xs" data-x="left" data-y="center"
                          data-hoffset="0" data-voffset="80" data-speed="1000" data-start="1600"
                          data-easing="Power4.easeOut">
-                        <p>Nulla pretium libero interdum, tempus lorem non, rutrum diam. <br> Quisque pellentesque diam
-                            sed pulvinar lobortis. Vestibulum ante <br>ipsum primis in faucibus orci luctus et ultrices
+                        <p>Nulla pretium libero interdum, tempus lorem non, rutrum diam. <br> Quisque pellentesque
+                            diam
+                            sed pulvinar lobortis. Vestibulum ante <br>ipsum primis in faucibus orci luctus et
+                            ultrices
                             posuere cubilia Curae.</p>
                     </div>
 
@@ -309,7 +392,8 @@
 
                         <h3>Easy setup</h3>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                            incididunt ut
                             labore et dolore.</p>
                     </div>
                 </div>
@@ -319,7 +403,8 @@
 
                         <h3>On-the-go</h3>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                            incididunt ut
                             labore et dolore.</p>
                     </div>
                 </div>
@@ -329,7 +414,8 @@
 
                         <h3>Social connect</h3>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                            incididunt ut
                             labore et dolore.</p>
                     </div>
                 </div>
@@ -339,7 +425,8 @@
 
                         <h3>Dedicated support</h3>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                            incididunt ut
                             labore et dolore.</p>
                     </div>
                 </div>
@@ -466,257 +553,11 @@
             </div>
         </div>
     </section>
-    <!--
-    <section id="reviews">
-        <div class="container">
-            <div class="section-heading inverse scrollpoint sp-effect3">
-                <h1>Reviews</h1>
-                <div class="divider"></div>
-                <p>Read What's The People Are Saying About Us</p>
-            </div>
-            <div class="row">
-                <div class="col-md-10 col-md-push-1 scrollpoint sp-effect3">
-                    <div class="review-filtering">
-                        <div class="review">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="review-person">
-                                        <img src="http://api.randomuser.me/portraits/women/94.jpg" alt="" class="img-responsive">
-                                    </div>
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="review-comment">
-                                        <h3>“I love Oleose, I highly recommend it, Everyone Try It Now”</h3>
-                                        <p>
-                                            - Krin Fox
-                                            <span>
-                                                <i class="fa fa-star fa-lg"></i>
-                                                <i class="fa fa-star fa-lg"></i>
-                                                <i class="fa fa-star fa-lg"></i>
-                                                <i class="fa fa-star fa-lg"></i>
-                                                <i class="fa fa-star-o fa-lg"></i>
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review rollitin">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="review-person">
-                                        <img src="http://api.randomuser.me/portraits/men/70.jpg" alt="" class="img-responsive">
-                                    </div>
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="review-comment">
-                                        <h3>“Oleaose Is The Best Stable, Fast App I Have Ever Experienced”</h3>
-                                        <p>
-                                            - Theodore Willis
-                                            <span>
-                                                <i class="fa fa-star fa-lg"></i>
-                                                <i class="fa fa-star fa-lg"></i>
-                                                <i class="fa fa-star fa-lg"></i>
-                                                <i class="fa fa-star-half-o fa-lg"></i>
-                                                <i class="fa fa-star-o fa-lg"></i>
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review rollitin">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="review-person">
-                                        <img src="http://api.randomuser.me/portraits/men/93.jpg" alt="" class="img-responsive">
-                                    </div>
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="review-comment">
-                                        <h3>“Keep It Up Guys Your Work Rules, Cheers :)”</h3>
-                                        <p>
-                                            - Ricky Grant
-                                            <span>
-                                                <i class="fa fa-star fa-lg"></i>
-                                                <i class="fa fa-star fa-lg"></i>
-                                                <i class="fa fa-star fa-lg"></i>
-                                                <i class="fa fa-star-half-o fa-lg"></i>
-                                                <i class="fa fa-star-o fa-lg"></i>
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--
-    <section id="screens">
-        <div class="container">
 
-            <div class="section-heading scrollpoint sp-effect3">
-                <h1>Screens</h1>
-                <div class="divider"></div>
-                <p>See what’s included in the App</p>
-            </div>
-
-            <div class="filter scrollpoint sp-effect3">
-                <a href="javascript:void(0)" class="button js-filter-all active">All Screens</a>
-                <a href="javascript:void(0)" class="button js-filter-one">User Access</a>
-                <a href="javascript:void(0)" class="button js-filter-two">Social Network</a>
-                <a href="javascript:void(0)" class="button js-filter-three">Media Players</a>
-            </div>
-            <div class="slider filtering scrollpoint sp-effect5" >
-                <div class="one">
-                    <img src="img/freeze/screens/profile.jpg" alt="">
-                    <h4>Profile Page</h4>
-                </div>
-                <div class="two">
-                    <img src="img/freeze/screens/menu.jpg" alt="">
-                    <h4>Toggel Menu</h4>
-                </div>
-                <div class="three">
-                    <img src="img/freeze/screens/weather.jpg" alt="">
-                    <h4>Weather Forcast</h4>
-                </div>
-                <div class="one">
-                    <img src="img/freeze/screens/signup.jpg" alt="">
-                    <h4>Sign Up</h4>
-                </div>
-                <div class="one">
-                    <img src="img/freeze/screens/calendar.jpg" alt="">
-                    <h4>Event Calendar</h4>
-                </div>
-                <div class="two">
-                    <img src="img/freeze/screens/options.jpg" alt="">
-                    <h4>Some Options</h4>
-                </div>
-                <div class="three">
-                    <img src="img/freeze/screens/sales.jpg" alt="">
-                    <h4>Sales Analysis</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--
-    <section id="demo">
-        <div class="container">
-            <div class="section-heading scrollpoint sp-effect3">
-                <h1>Demo</h1>
-                <div class="divider"></div>
-                <p>Take a closer look in more detail</p>
-            </div>
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 scrollpoint sp-effect2">
-                    <div class="video-container" >
-                        <iframe src="http://player.vimeo.com/video/70984663"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="getApp">
-        <div class="container-fluid">
-            <div class="section-heading inverse scrollpoint sp-effect3">
-                <h1>Get App</h1>
-                <div class="divider"></div>
-                <p>Choose your native platform and get started!</p>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="hanging-phone scrollpoint sp-effect2 hidden-xs">
-                        <img src="img/freeze/freeze-angled2.png" alt="">
-                    </div>
-                    <div class="platforms">
-                        <a href="#" class="btn btn-primary inverse scrollpoint sp-effect1">
-                            <i class="fa fa-android fa-3x pull-left"></i>
-                            <span>Download for</span><br>
-                            <b>Android</b>
-                        </a>
-
-                            <a href="#" class="btn btn-primary inverse scrollpoint sp-effect2">
-                                <i class="fa fa-apple fa-3x pull-left"></i>
-                                <span>Download for</span><br>
-                                <b>Apple IOS</b>
-                            </a>
-                    </div>
-
-                </div>
-            </div>
-
-
-
-        </div>
-    </section>
-    <!--
-    <section id="support" class="doublediagonal">
-        <div class="container">
-            <div class="section-heading scrollpoint sp-effect3">
-                <h1>Support</h1>
-                <div class="divider"></div>
-                <p>For more info and support, contact us!</p>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 scrollpoint sp-effect1">
-                            <form role="form">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Your email">
-                                </div>
-                                <div class="form-group">
-                                    <textarea cols="30" rows="10" class="form-control" placeholder="Your message"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                            </form>
-                        </div>
-                        <div class="col-md-4 col-sm-4 contact-details scrollpoint sp-effect2">
-                            <div class="media">
-                                <a class="pull-left" href="#" >
-                                    <i class="fa fa-map-marker fa-2x"></i>
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading">4, Some street, California, USA</h4>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <a class="pull-left" href="#" >
-                                    <i class="fa fa-envelope fa-2x"></i>
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading">
-                                        <a href="mailto:support@oleose.com">support@oleose.com</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <a class="pull-left" href="#" >
-                                    <i class="fa fa-phone fa-2x"></i>
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading">+1 234 567890</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    -->
     <footer>
         <div class="container">
             <a href="#" class="scrollpoint sp-effect3">
-                <img src="/resources/img/freeze/logo.png" alt="" class="logo">
+                <img src="img/freeze/logo.png" alt="" class="logo">
             </a>
 
             <div class="social">
@@ -732,24 +573,40 @@
         </div>
     </footer>
 </div>
+<script src="/resources/js/cool/jquery-1.11.1.min.js"></script>
+<script src="/resources/js/cool/bootstrap.min.js"></script>
+<script src="/resources/js/cool/slick.min.js"></script>
+<script src="/resources/js/cool/placeholdem.min.js"></script>
+<script src="/resources/js/cool/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+<script src="/resources/js/cool/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<script src="/resources/js/cool/waypoints.min.js"></script>
+<script src="/resources/js/cool/scripts.js"></script>
+<script src="/resources/js/cool/modal.js"></script>
 
+<script>
+    $(document).ready(function () {
+        appMaster.preLoader();
+    });
+    <#if errorReg??>
+    $('#dark-bg').fadeIn();
+    $('#content-body').fadeIn();
 
-</#macro>
-<@main title="Index"
-customScripts=["/resources/js/cool/jquery-1.11.1.min.js",
-"/resources/js/cool/bootstrap.min.js",
-"/resources/js/cool/slick.min.js",
-"/resources/js/cool/placeholdem.min.js",
-"/resources/js/cool/rs-plugin/js/jquery.themepunch.plugins.min.js",
-"/resources/js/cool/rs-plugin/js/jquery.themepunch.revolution.min.js",
-"/resources/js/cool/waypoints.min.js",
-"/resources/js/cool/scripts.js",
-"/resources/js/cool/modal.js",
-"/resources/js/cool/modernizr.custom.32033.js"]
-customStyles=["/resources/css/cool/bootstrap.css",
-"/resources/css/cool/modal.css",
-"/resources/css/cool/animate.css",
-"/resources/css/cool/font-awesome.min.css",
-"/resources/css/cool/slick.css",
-"/resources/js/cool/rs-plugin/css/settings.css",
-"/resources/css/cool/freeze.css"]/>
+    $('#content-body').animate({
+        'left': '45%',
+        'opacity': '1'
+    }, 500);
+
+    $('#content-body').animate({
+        'left': '52%'
+    }, 500)
+
+    $('#content-body').animate({
+        'left': '50%'
+    }, 500)
+
+    </#if>
+</script>
+
+</body>
+
+</html>

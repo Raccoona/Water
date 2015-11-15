@@ -1,5 +1,6 @@
 package com.water.controller;
 
+import com.water.model.Bottle;
 import com.water.service.UserService;
 import com.water.util.form.UserRegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class AuthController {
@@ -20,8 +22,14 @@ public class AuthController {
     private UserService userService;
 
     @RequestMapping("/guest")
-    public String getHello() {
-        return "guest";
+    public String getHello(@RequestParam(value = "error", required = false) Boolean error, Model model) {
+//            List<Bottle> bottles = bottleRepository.findAll();
+//            model.addAttribute("bottles", bottles);
+            model.addAttribute("userform", new UserRegistrationForm());
+            if (Boolean.TRUE.equals(error)) {
+                model.addAttribute("error", error);
+            }
+            return "guest";
     }
 
     @RequestMapping("/login")
@@ -32,21 +40,23 @@ public class AuthController {
         return "login";
     }
 
-    @RequestMapping("/registration")
-    public String getRegistrationPage(Model model) {
-        model.addAttribute("userform", new UserRegistrationForm());
-        return "registration";
-    }
+//    @RequestMapping("/registration")
+//    public String getRegistrationPage(Model model) {
+//        model.addAttribute("userform", new UserRegistrationForm());
+//        return "registration";
+//    }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String processRegistrationPage(@ModelAttribute("userform") @Valid UserRegistrationForm userRegistrationForm,
-                                          BindingResult bindingResult) {
+                                          BindingResult bindingResult,
+                                          Model model) {
         //validator.validate(userRegistrationForm, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "registration";
+            model.addAttribute("errorReg",1);
+            return "index";
         }
         userService.saveNewUser(userRegistrationForm);
-        return "redirect:/login";
+        return "redirect:/index";
     }
 
     /*

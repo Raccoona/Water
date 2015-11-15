@@ -35,7 +35,7 @@ public class WaterRequestServiceImpl implements WaterRequestService {
         User from = bottle.getUser();
         request.setBottle(bottle);
         request.setFrom(from);
-        request.setTo(userService.getProvider(from));
+        request.setTo(userService.getProvider(from.getId()));
         request.setStatus(WaterRequestStatus.NEW);
         waterRequestRepository.save(request);
     }

@@ -1,6 +1,5 @@
 package com.water.controller;
 
-import com.google.gson.Gson;
 import com.water.model.Bottle;
 import com.water.model.User;
 import com.water.model.WaterRequest;
@@ -10,17 +9,11 @@ import com.water.service.BottleService;
 import com.water.service.UserService;
 import com.water.service.WaterRequestService;
 import com.water.util.Security;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.util.*;
 
 
@@ -67,21 +60,8 @@ public class UserController {
     }
 
     @RequestMapping(name = "/request/update")
-    public String updateWaterRequest(@RequestParam("waterReqId") Long waterReqId, @RequestParam("date") Date date) throws IOException {
+    public String updateWaterRequest(@RequestParam("waterReqId") Long waterReqId, @RequestParam("date") Date date) {
         waterRequestService.updateRequest(waterReqId, date);
-
-        HttpClient httpClient = HttpClientBuilder.create().build();
-
-        String postUrl = "http://localhost:20000/date";// put in your url
-        Gson gson = new Gson();
-        HttpPost post = new HttpPost(postUrl);
-        StringEntity postingString = new StringEntity(gson.toJson(date));//convert your pojo to   json
-        System.out.println(postingString + "DATE UPDATE HERE!!");
-
-        post.setEntity(postingString);
-        post.setHeader("Content-type", "application/json");
-        HttpResponse response = httpClient.execute(post);
-
         return "redirect:/user/home";
     }
 

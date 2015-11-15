@@ -79,7 +79,14 @@ public class UserController {
         List<Bottle> bottles = bottleService.getBottlersByUser(userService.getClient(Long.parseLong(clientId)));
         model.addAttribute("user", Security.getCurrentUser());
         model.addAttribute("bottles", bottles);
+        model.addAttribute("client", userService.getClient(Long.parseLong(clientId)));
         return "client";
+    }
+
+    @RequestMapping("bottles/getAll")
+    public String getAllBottles(Long userId, Model model) {
+        model.addAttribute("bottles",bottleService.getBottlersByUser(userService.getClient(userId)));
+        return "bottles";
     }
 
     @RequestMapping("/providers/get")

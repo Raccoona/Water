@@ -410,7 +410,7 @@
 
 <div class="media-body">
 <h3 class="media-heading">Быстрая установка</h3>
-
+Не требующая значительных затрат
 </div>
 </div>
 <div class="media media-left feature">
@@ -420,7 +420,7 @@
 
 <div class="media-body">
 <h3 class="media-heading">Удобное управление настройками</h3>
-Lorem ipsum dolor sit amet.
+Через Личный кабинет на сайте
 </div>
 </div>
 <div class="media media-left feature">

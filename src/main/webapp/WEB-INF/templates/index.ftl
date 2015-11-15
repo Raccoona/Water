@@ -45,39 +45,12 @@
         <h3>Присоедениться</h3>
 
 
-    <#--<form class="form-horizontal">-->
-    <#--<div class="form-group">-->
-    <#--<div class="col-lg-12">-->
-    <#--<input type="text" class="form-control form-block" placeholder="Enter your username">-->
-    <#--</div>-->
-    <#--</div>-->
-    <#--<div class="form-group">-->
-    <#--<div class="col-lg-12">-->
-    <#--<input type="text" class="form-control form-block" placeholder="Enter your email address">-->
-    <#--</div>-->
-    <#--</div>-->
-    <#--<div class="form-group">-->
-    <#--<div class="col-lg-12">-->
-    <#--<input type="text" class="form-control form-block" placeholder="Enter your password">-->
-    <#--</div>-->
-    <#--</div>-->
-    <#--<div class="form-group">-->
-    <#--<div class="col-lg-12">-->
-    <#--<input type="text" class="form-control form-block" placeholder="Retype your password">-->
-    <#--</div>-->
-    <#--</div>-->
-    <#--<div class="form-group">-->
-    <#--<div class="col-lg-12">-->
-    <#--<input type="submit" value="Отправить">-->
-    <#--</div>-->
-    <#--</div>-->
-    <#--</form>-->
-    <#--</div>-->
+
     <@sf.form action="/registration" cssClass="form-horizontal" method="post" modelAttribute="userform">
 
         <div class="form-group">
             <div class="col-lg-12">
-                <@sf.input path="name" cssClass="form-control form-block" placeholder="Enter your username" />
+                <@sf.input path="name" cssClass="form-control form-block" placeholder="Введите название компании" />
                     <@sf.errors path="name"/>
             </div>
         </div>
@@ -94,7 +67,7 @@
 
         <div class="form-group">
             <div class="col-lg-12">
-                <@sf.input path="city" cssClass="form-control form-block" placeholder="Enter your username" />
+                <@sf.input path="city" cssClass="form-control form-block" placeholder="Город" />
                     <@sf.errors path="city"/>
             </div>
         </div>
@@ -102,7 +75,7 @@
 
         <div class="form-group">
             <div class="col-lg-12">
-                <@sf.input path="mobilePhone" cssClass="form-control form-block" placeholder="Enter your username" />
+                <@sf.input path="mobilePhone" cssClass="form-control form-block" placeholder="Мобильный телефон" />
                     <@sf.errors path="mobilePhone"/>
             </div>
         </div>
@@ -110,7 +83,7 @@
 
         <div class="form-group">
             <div class="col-lg-12">
-                <@sf.input path="email" cssClass="form-control form-block" placeholder="Enter your username" />
+                <@sf.input path="email" cssClass="form-control form-block" placeholder="Email" />
                     <@sf.errors path="email"/>
             </div>
         </div>
@@ -118,7 +91,7 @@
 
         <div class="form-group">
             <div class="col-lg-12">
-                <@sf.input path="login" cssClass="form-control form-block" placeholder="Enter your username" />
+                <@sf.input path="login" cssClass="form-control form-block" placeholder="Логин" />
                     <@sf.errors path="login"/>
             </div>
         </div>
@@ -126,7 +99,7 @@
 
         <div class="form-group">
             <div class="col-lg-12">
-                <@sf.input path="password" cssClass="form-control form-block" placeholder="Enter your username" />
+                <@sf.input path="password" cssClass="form-control form-block" placeholder="Пароль" />
                     <@sf.errors path="password"/>
             </div>
         </div>
@@ -134,7 +107,7 @@
 
         <div class="form-group">
             <div class="col-lg-12">
-                <@sf.input path="repassword" cssClass="form-control form-block" placeholder="Enter your username" />
+                <@sf.input path="repassword" cssClass="form-control form-block" placeholder="Потвердите пароль" />
                     <@sf.errors path="repassword"/>
             </div>
         </div>
@@ -557,18 +530,11 @@
     <footer>
         <div class="container">
             <a href="#" class="scrollpoint sp-effect3">
-                <img src="img/freeze/logo.png" alt="" class="logo">
+                <img src="/resources/img/freeze/logo.png" alt="" class="logo">
             </a>
 
-            <div class="social">
-                <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-twitter fa-lg"></i></a>
-                <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-google-plus fa-lg"></i></a>
-                <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-facebook fa-lg"></i></a>
-            </div>
             <div class="rights">
-                <p>Copyright &copy; 2014</p>
-
-                <p>Template by <a href="http://www.scoopthemes.com" target="_blank">ScoopThemes</a></p>
+                <p>JetBrains 2014</p>
             </div>
         </div>
     </footer>
@@ -587,7 +553,7 @@
     $(document).ready(function () {
         appMaster.preLoader();
     });
-    <#if errorReg??>
+    <#if errorReg?? || error??>
     $('#dark-bg').fadeIn();
     $('#content-body').fadeIn();
 
